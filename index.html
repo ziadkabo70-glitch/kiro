@@ -1155,6 +1155,18 @@
             padding-top: 14px;
             border-top: 1px solid var(--border);
         }
+        .order-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            font-size: 0.78rem;
+        }
+        .order-detail-grid span {
+            color: var(--text-tertiary);
+        }
+        .order-detail-grid strong {
+            color: var(--text-primary);
+        }
         @media (max-width: 900px) {
             .sidebar {
                 right: -290px;
@@ -1190,6 +1202,9 @@
             }
             .topbar {
                 padding: 10px 14px;
+            }
+            .order-detail-grid {
+                grid-template-columns: 1fr;
             }
         }
         @media (max-width: 480px) {
@@ -1324,6 +1339,7 @@
                 if (!LD.settings) LD.settings = { theme: 'light', accent: 'indigo', lang: 'ar', minWithdrawal: 200,
                     withdrawalDay: 4, referralThreshold: 50, referralBonus: 300, defaultCommissionRate: 15 };
                 if (!LD.nid) LD.nid = 1;
+                LD.users.forEach(u => { if (u.pageName === undefined) u.pageName = ''; });
                 LD.orders.forEach(o => {
                     if (o.commissionStatus === undefined) o.commissionStatus = 'pending';
                     if (!o.sellerPrice) o.sellerPrice = o.totalAmount / (o.items[0]?.quantity || 1);
@@ -1334,6 +1350,7 @@
                         .settings = { theme: 'light', accent: 'indigo', lang: 'ar', minWithdrawal: 200,
                             withdrawalDay: 4, referralThreshold: 50, referralBonus: 300,
                         defaultCommissionRate: 15 }; if (!LD.nid) LD.nid = 1;
+                    LD.users.forEach(u => { if (u.pageName === undefined) u.pageName = ''; });
                     LD.orders.forEach(o => { if (o.commissionStatus === undefined) o.commissionStatus =
                             'pending'; if (!o.sellerPrice) o.sellerPrice = o.totalAmount / (o.items[0]
                             ?.quantity || 1); if (!o.frozenAt) o.frozenAt = null; }); } catch (e) { lseed
@@ -1351,12 +1368,12 @@
             LD.users = [
                 { id: 'admin_001', name: 'Ahmed ElModir', phone: '01000000001', email: ADMIN_EMAIL, password: ADMIN_PASS,
                     role: 'admin', balance: 0, salesCount: 0, commissionRate: 15, referralCode: 'ADMIN001',
-                    referredBy: null, permissions: ['all'], createdAt: new Date().toISOString(), active: true,
-                    banned: false, banReason: '' },
+                    referredBy: null, permissions: ['all'], pageName: 'Main Admin', createdAt: new Date()
+                    .toISOString(), active: true, banned: false, banReason: '' },
                 { id: 'mark_001', name: 'Mohamed Ali', phone: '01011111111', email: 'mohamed@email.com',
                     password: 'mark123', role: 'marketer', balance: 2500, salesCount: 35, commissionRate: 15,
-                    referralCode: 'REF001', referredBy: null, createdAt: new Date().toISOString(), active: true,
-                    banned: false, banReason: '' }
+                    referralCode: 'REF001', referredBy: null, pageName: 'متجر محمد', createdAt: new Date()
+                    .toISOString(), active: true, banned: false, banReason: '' }
             ];
             LD.products = [{
                 id: 'p1',
@@ -1560,8 +1577,10 @@
                 themeColor: 'لون السمة',
                 darkMode: 'الوضع الليلي',
                 language: 'اللغة',
-                logoutConfirm: 'تأكيد الخروج',
-                view: 'عرض',
+                pageName: 'اسم الصفحة',
+                enterPageName: 'أدخل اسم صفحتك',
+                viewDetails: 'عرض التفاصيل',
+                orderDetails: 'تفاصيل الطلب',
                 allRights: 'جميع الحقوق محفوظة'
             },
             en: {
@@ -1738,8 +1757,10 @@
                 themeColor: 'Theme Color',
                 darkMode: 'Dark Mode',
                 language: 'Language',
-                logoutConfirm: 'Confirm Logout',
-                view: 'View',
+                pageName: 'Page Name',
+                enterPageName: 'Enter your page name',
+                viewDetails: 'View Details',
+                orderDetails: 'Order Details',
                 allRights: 'All Rights Reserved'
             }
         };
@@ -1792,8 +1813,8 @@
             lsave();
             if (currentUser) { updateSidebar();
                 updateSidebarUserInfo();
-                navigateTo(currentView); } else { showLogin(document.querySelector('.tab-btn.active')?.dataset
-                    ?.tab || 'login'); }
+                navigateTo(currentView); } else { showLogin(document.querySelector('.tab-btn.active')?.dataset?.tab ||
+                    'login'); }
         }
 
         function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open');
@@ -1839,8 +1860,8 @@
                             LD.notifications.unshift({
                                 id: lgid(),
                                 userId: marketer.id,
-                                message: '✅ تم فك تجميد عمولة الطلب #' + o.id.replace('id_',
-                                    '') + ' وإضافتها لرصيدك (' + o.commissionAmount + ' ₺)',
+                                message: '✅ تم فك تجميد عمولة الطلب #' + o.id.replace('id_', '') +
+                                    ' وإضافتها لرصيدك (' + o.commissionAmount + ' ₺)',
                                 type: 'commission',
                                 read: false,
                                 timestamp: new Date().toISOString()
@@ -1902,6 +1923,7 @@
             <div class="form-group"><label class="form-label">📱 ${t('phone')}</label><input class="form-input" id="regPhone" placeholder="${t('enterPhone')}"></div>
             <div class="form-group"><label class="form-label">📧 ${t('email')}</label><input class="form-input" id="regEmail" placeholder="${t('enterEmail')}"></div>
             <div class="form-group"><label class="form-label">🔑 ${t('password')}</label><input class="form-input" type="password" id="regPass" placeholder="${t('enterPass')}"></div>
+            <div class="form-group"><label class="form-label">🏪 ${t('pageName')}</label><input class="form-input" id="regPageName" placeholder="${t('enterPageName')}"></div>
             <div class="form-group"><label class="form-label">🔗 ${t('referralCode')} (${t('optional')})</label><input class="form-input" id="regRef" placeholder="REF..."></div>
             <button class="btn btn-accent" style="width:100%;padding:13px;font-size:0.95rem;margin-top:8px;" onclick="handleRegister()"><i class="fas fa-user-plus"></i> ${t('register')}</button>
             <p style="text-align:center;margin-top:14px;font-size:0.78rem;color:var(--text-tertiary);">${t('hasAccount')} <a style="color:var(--accent);cursor:pointer;font-weight:700;" onclick="showLogin('login')">${t('login')}</a></p>`;
@@ -1916,8 +1938,8 @@
                 if (!admin) {
                     admin = { id: 'admin_001', name: 'Admin Zoz', phone: '01000000001', email: ADMIN_EMAIL,
                         password: ADMIN_PASS, role: 'admin', balance: 0, salesCount: 0, commissionRate: 15,
-                        referralCode: 'ADMIN001', referredBy: null, permissions: ['all'], createdAt: new Date()
-                            .toISOString(), active: true, banned: false, banReason: '' };
+                        referralCode: 'ADMIN001', referredBy: null, permissions: ['all'], pageName: 'Main Admin',
+                        createdAt: new Date().toISOString(), active: true, banned: false, banReason: '' };
                     LD.users.push(admin);
                     lsave();
                 }
@@ -1945,6 +1967,7 @@
             const phone = document.getElementById('regPhone').value.trim();
             const email = document.getElementById('regEmail').value.trim().toLowerCase();
             const pass = document.getElementById('regPass').value.trim();
+            const pageName = document.getElementById('regPageName').value.trim();
             const ref = document.getElementById('regRef').value.trim();
             if (!name || !phone || !email || !pass) return showToast(t('fillAll'), 'error');
             if (email === ADMIN_EMAIL) return showToast(t('accountExists'), 'error');
@@ -1955,8 +1978,8 @@
                     referredBy = ru.id; }
             const newUser = { id: lgid(), name, phone, email, password: pass, role: 'marketer', balance: 0,
                 salesCount: 0, commissionRate: LD.settings.defaultCommissionRate, referralCode: 'REF' + Date.now()
-                    .toString(36).toUpperCase(), referredBy, permissions: [], createdAt: new Date().toISOString(),
-                active: true, banned: false, banReason: '' };
+                    .toString(36).toUpperCase(), referredBy, permissions: [], pageName: pageName || name,
+                createdAt: new Date().toISOString(), active: true, banned: false, banReason: '' };
             LD.users.push(newUser);
             LD.auditLog.unshift({ id: lgid(), userId: newUser.id, action: 'Register', details: name +
                     ' created account', timestamp: new Date().toISOString() });
@@ -2086,9 +2109,7 @@
                 const el = document.getElementById('rtbl');
                 if (el) {
                     const o = LD.orders.slice(-6).reverse();
-                    el.innerHTML = o.length ?
-                        `<div class="table-wrap"><table><tr><th>#</th><th>${t('name')}</th><th>${t('amount')}</th><th>${t('status')}</th></tr>${o.map(x => `<tr><td>${x.id.replace('id_', '')}</td><td>${x.customer.name}</td><td>${x.totalAmount} ₺</td><td><span class="status-pill ${getStatusClass(x.status)}">${x.status}</span></td></tr>`).join('')}</table></div>` :
-                        '<div class="empty-state"><i class="fas fa-inbox"></i><p>' + t('noData') + '</p></div>';
+                    el.innerHTML = o.length ? `<div class="table-wrap"><table><tr><th>#</th><th>${t('name')}</th><th>${t('amount')}</th><th>${t('status')}</th><th></th></tr>${o.map(x => `<tr><td>${x.id.replace('id_','')}</td><td>${x.customer.name}</td><td>${x.totalAmount} ₺</td><td><span class="status-pill ${getStatusClass(x.status)}">${x.status}</span></td><td><button class="btn btn-xs" onclick="viewOrderDetails('${x.id}')">👁️ ${t('viewDetails')}</button></td></tr>`).join('')}</table></div>` : '<div class="empty-state"><i class="fas fa-inbox"></i><p>' + t('noData') + '</p></div>';
                 }
             } else {
                 processFrozenCommissions();
@@ -2116,11 +2137,35 @@
                 const el2 = document.getElementById('motbl');
                 if (el2) {
                     const o = mo.slice(-5).reverse();
-                    el2.innerHTML = o.length ?
-                        `<div class="table-wrap"><table><tr><th>#</th><th>${t('name')}</th><th>${t('commission')}</th><th>${t('status')}</th></tr>${o.map(x => `<tr><td>${x.id.replace('id_', '')}</td><td>${x.customer.name}</td><td>${x.commissionAmount} ₺</td><td><span class="status-pill ${getStatusClass(x.status)}">${x.status}</span></td></tr>`).join('')}</table></div>` :
-                        '<div class="empty-state"><i class="fas fa-inbox"></i><p>' + t('noData') + '</p></div>';
+                    el2.innerHTML = o.length ? `<div class="table-wrap"><table><tr><th>#</th><th>${t('name')}</th><th>${t('commission')}</th><th>${t('status')}</th></tr>${o.map(x => `<tr><td>${x.id.replace('id_','')}</td><td>${x.customer.name}</td><td>${x.commissionAmount} ₺</td><td><span class="status-pill ${getStatusClass(x.status)}">${x.status}</span></td></tr>`).join('')}</table></div>` : '<div class="empty-state"><i class="fas fa-inbox"></i><p>' + t('noData') + '</p></div>';
                 }
             }
+        }
+
+        // ==================== ORDER DETAILS MODAL ====================
+        function viewOrderDetails(oid) {
+            const o = LD.orders.find(x => x.id === oid);
+            if (!o) return;
+            const marketer = findUser(o.marketerId);
+            document.getElementById('modalContainer').innerHTML = `
+            <div class="modal-overlay" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modal-header"><h3>📋 ${t('orderDetails')} #${oid.replace('id_','')}</h3><button class="btn-icon" onclick="closeModal()"><i class="fas fa-times"></i></button></div>
+            <div class="modal-body">
+              <div class="order-detail-grid">
+                <div><span>👤 ${t('name')}:</span> <strong>${o.customer.name}</strong></div>
+                <div><span>📱 ${t('phone1')}:</span> <strong>${o.customer.phone1}</strong></div>
+                <div><span>📱 ${t('phone2')}:</span> <strong>${o.customer.phone2 || '—'}</strong></div>
+                <div><span>💬 ${t('whatsapp')}:</span> <strong>${o.customer.whatsapp || '—'}</strong></div>
+                <div><span>📦 ${t('product')}:</span> <strong>${findProduct(o.items[0]?.productId)?.name || '—'}</strong></div>
+                <div><span>🎨 ${t('color')}:</span> <strong>${o.items[0]?.color || '—'}</strong></div>
+                <div><span>🔢 ${t('quantity')}:</span> <strong>${o.items[0]?.quantity || 0}</strong></div>
+                <div><span>💰 ${t('amount')}:</span> <strong>${o.totalAmount} ₺</strong></div>
+                <div><span>💵 ${t('sellingPrice')}:</span> <strong>${o.sellerPrice} ₺</strong></div>
+                <div><span>👤 ${t('marketer')}:</span> <strong>${marketer?.name || '—'} (${marketer?.pageName || '—'})</strong></div>
+                <div><span>📊 ${t('status')}:</span> <span class="status-pill ${getStatusClass(o.status)}">${o.status}</span></div>
+                <div><span>💎 ${t('commission')}:</span> <strong>${o.commissionAmount} ₺ (${o.commissionStatus})</strong></div>
+              </div>
+            </div>
+            <div class="modal-footer"><button class="btn btn-accent" onclick="closeModal()">${t('close')}</button></div></div></div>`;
         }
 
         // ==================== PRODUCTS ====================
@@ -2134,9 +2179,8 @@
                     pr = off ? Math.round(p.basePrice * (1 - off.discountPercent / 100)) : p.basePrice,
                     st = p.colors.reduce((s, c) => s + c.stock, 0),
                     im = p.colors[0]?.images[0] || 'https://picsum.photos/seed/d/400/400';
-                return `<div class="card animate-in" style="animation-delay:${i * 0.04}s;overflow:hidden;"><img src="${im}" class="img-preview" style="height:180px;" onerror="this.src='https://picsum.photos/seed/fb/400/400'"><div class="card-body"><h4>${p.name}</h4><p style="font-size:0.72rem;color:var(--text-tertiary);">${p.description?.substring(0, 45) || ''}</p><div style="margin:6px 0;">${off ? `<span style="text-decoration:line-through;color:var(--text-tertiary);font-size:0.78rem;">${p.basePrice} ₺</span> <span style="font-weight:900;color:var(--danger-text);font-size:1.05rem;">${pr} ₺</span> <span class="tag">-${off.discountPercent}%</span>` : `<span style="font-weight:900;font-size:1.05rem;">${p.basePrice} ₺</span>`}</div><div style="font-size:0.7rem;color:var(--text-tertiary);">📦 ${t('stock')}: ${st} | 🎨 ${t('colors')}: ${p.colors.length}</div></div><div class="card-footer" style="display:flex;gap:6px;">${currentUser.role === 'admin' ? `<button class="btn btn-sm" onclick="openProductModal('${p.id}')"><i class="fas fa-edit"></i> ${t('edit')}</button><button class="btn btn-sm btn-danger" onclick="deleteProduct('${p.id}')"><i class="fas fa-trash"></i> ${t('delete')}</button>` : `<button class="btn btn-accent btn-sm" style="width:100%;" onclick="addToCart('${p.id}')"><i class="fas fa-cart-plus"></i> ${t('orderNow')}</button>`}</div></div>`;
-            }).join('') : '<div class="empty-state" style="grid-column:1/-1;"><i class="fas fa-box-open"></i><p>' + t(
-                'noProducts') + '</p></div>';
+                return `<div class="card animate-in" style="animation-delay:${i*0.04}s;overflow:hidden;"><img src="${im}" class="img-preview" style="height:180px;" onerror="this.src='https://picsum.photos/seed/fb/400/400'"><div class="card-body"><h4>${p.name}</h4><p style="font-size:0.72rem;color:var(--text-tertiary);">${p.description?.substring(0,45)||''}</p><div style="margin:6px 0;">${off?`<span style="text-decoration:line-through;color:var(--text-tertiary);font-size:0.78rem;">${p.basePrice} ₺</span> <span style="font-weight:900;color:var(--danger-text);font-size:1.05rem;">${pr} ₺</span> <span class="tag">-${off.discountPercent}%</span>`:`<span style="font-weight:900;font-size:1.05rem;">${p.basePrice} ₺</span>`}</div><div style="font-size:0.7rem;color:var(--text-tertiary);">📦 ${t('stock')}: ${st} | 🎨 ${t('colors')}: ${p.colors.length}</div></div><div class="card-footer" style="display:flex;gap:6px;">${currentUser.role==='admin'?`<button class="btn btn-sm" onclick="openProductModal('${p.id}')"><i class="fas fa-edit"></i> ${t('edit')}</button><button class="btn btn-sm btn-danger" onclick="deleteProduct('${p.id}')"><i class="fas fa-trash"></i> ${t('delete')}</button>`:`<button class="btn btn-accent btn-sm" style="width:100%;" onclick="addToCart('${p.id}')"><i class="fas fa-cart-plus"></i> ${t('orderNow')}</button>`}</div></div>`;
+            }).join('') : '<div class="empty-state" style="grid-column:1/-1;"><i class="fas fa-box-open"></i><p>' + t('noProducts') + '</p></div>';
         }
 
         function openProductModal(pid = null) {
@@ -2154,17 +2198,17 @@
                     <input class="form-input" type="number" placeholder="${t('stock')}" value="0" style="max-width:80px;">
                 </div>`;
             document.getElementById('modalContainer').innerHTML = `
-            <div class="modal-overlay" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modal-header"><h3>${p ? t('editProduct') : t('addProduct')}</h3><button class="btn-icon" onclick="closeModal()"><i class="fas fa-times"></i></button></div>
+            <div class="modal-overlay" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modal-header"><h3>${p?t('editProduct'):t('addProduct')}</h3><button class="btn-icon" onclick="closeModal()"><i class="fas fa-times"></i></button></div>
             <div class="modal-body">
-                <div class="form-group"><label class="form-label">${t('name')}</label><input class="form-input" id="pn" value="${p?.name || ''}"></div>
-                <div class="form-group"><label class="form-label">${t('description')}</label><textarea id="pd">${p?.description || ''}</textarea></div>
-                <div class="form-group"><label class="form-label">${t('price')} (₺)</label><input class="form-input" type="number" id="pp" value="${p?.basePrice || 0}"></div>
+                <div class="form-group"><label class="form-label">${t('name')}</label><input class="form-input" id="pn" value="${p?.name||''}"></div>
+                <div class="form-group"><label class="form-label">${t('description')}</label><textarea id="pd">${p?.description||''}</textarea></div>
+                <div class="form-group"><label class="form-label">${t('price')} (₺)</label><input class="form-input" type="number" id="pp" value="${p?.basePrice||0}"></div>
                 <div class="form-group"><label class="form-label">${t('colors')}</label>
                     <div id="colorsContainer">${colorsHtml}</div>
                     <button class="btn btn-sm" onclick="addColorEntry()"><i class="fas fa-plus"></i> ${t('addColor')}</button>
                 </div>
             </div>
-            <div class="modal-footer"><button class="btn" onclick="closeModal()">${t('cancel')}</button><button class="btn btn-accent" onclick="saveProduct('${pid || ''}')">${t('save')}</button></div></div></div>`;
+            <div class="modal-footer"><button class="btn" onclick="closeModal()">${t('cancel')}</button><button class="btn btn-accent" onclick="saveProduct('${pid||''}')">${t('save')}</button></div></div></div>`;
         }
 
         function addColorEntry() {
@@ -2329,7 +2373,7 @@
             let ords = LD.orders.slice().reverse();
             if (searchId) ords = ords.filter(o => o.id.includes(searchId));
             container.innerHTML = `
-            <div class="card animate-in"><div class="card-header"><h3>📋 ${t('orders')}</h3><div style="display:flex;gap:8px;align-items:center;"><input class="form-input" id="orderSearch" placeholder="${t('searchOrderId')}" style="max-width:200px;" oninput="renderOrders(document.getElementById('contentArea'))"><button class="btn btn-sm" onclick="renderOrders(document.getElementById('contentArea'))">🔍</button></div></div><div class="card-body"><div class="table-wrap"><table><tr><th>${t('orderId')}</th><th>${t('name')}</th><th>${t('marketer')}</th><th>${t('amount')}</th><th>${t('marketerProfit')}</th><th>${t('status')}</th><th>${t('actions')}</th></tr>
+            <div class="card animate-in"><div class="card-header"><h3>📋 ${t('orders')}</h3><div style="display:flex;gap:8px;align-items:center;"><input class="form-input" id="orderSearch" placeholder="${t('searchOrderId')}" style="max-width:200px;" oninput="renderOrders(document.getElementById('contentArea'))"><button class="btn btn-sm" onclick="renderOrders(document.getElementById('contentArea'))">🔍</button></div></div><div class="card-body"><div class="table-wrap"><table><tr><th>${t('orderId')}</th><th>${t('name')}</th><th>📱</th><th>${t('marketer')}</th><th>${t('amount')}</th><th>${t('marketerProfit')}</th><th>${t('status')}</th><th>${t('actions')}</th><th></th></tr>
             ${ords.map(o => {
                 const marketer = findUser(o.marketerId);
                 const profit = o.commissionAmount || 0;
@@ -2338,15 +2382,24 @@
                 const rejectedLabel = t('rejected');
                 const returnedLabel = t('returned');
                 const cancelledLabel = t('cancelled');
-                return `<tr><td>${o.id.replace('id_', '')}</td><td>${o.customer.name} (${o.customer.phone1})</td><td>${marketer?.name || '—'}</td><td>${o.totalAmount} ₺</td><td>${profit} ₺</td><td><span class="status-pill ${getStatusClass(o.status)}">${o.status}</span><br><small style="font-size:0.65rem;">${o.commissionStatus}</small></td>
-            <td><select class="form-select" style="width:auto;padding:5px 8px;font-size:0.7rem;" onchange="updateOS('${o.id}',this.value)"><option value="">—</option>
-            <option value="${shippedLabel}">🚚 ${t('ship')}</option>
-            <option value="${receivedLabel}">✅ ${t('receive')}</option>
-            <option value="${rejectedLabel}">❌ ${t('rejectOrder')}</option>
-            <option value="${returnedLabel}">↩️ ${t('returnOrder')}</option>
-            <option value="${cancelledLabel}">🗑️ ${t('cancelOrder')}</option></select></td></tr>`;
+                return `<tr>
+                    <td>${o.id.replace('id_','')}</td>
+                    <td><strong>${o.customer.name}</strong></td>
+                    <td><small>${o.customer.phone1}<br>${o.customer.whatsapp||'—'}</small></td>
+                    <td>${marketer?.name||'—'}<br><small style="color:var(--text-tertiary);">${marketer?.pageName||''}</small></td>
+                    <td>${o.totalAmount} ₺</td>
+                    <td>${profit} ₺</td>
+                    <td><span class="status-pill ${getStatusClass(o.status)}">${o.status}</span><br><small style="font-size:0.65rem;">${o.commissionStatus}</small></td>
+                    <td><select class="form-select" style="width:auto;padding:5px 8px;font-size:0.7rem;" onchange="updateOS('${o.id}',this.value)"><option value="">—</option>
+                    <option value="${shippedLabel}">🚚 ${t('ship')}</option>
+                    <option value="${receivedLabel}">✅ ${t('receive')}</option>
+                    <option value="${rejectedLabel}">❌ ${t('rejectOrder')}</option>
+                    <option value="${returnedLabel}">↩️ ${t('returnOrder')}</option>
+                    <option value="${cancelledLabel}">🗑️ ${t('cancelOrder')}</option></select></td>
+                    <td><button class="btn btn-xs" onclick="viewOrderDetails('${o.id}')">👁️</button></td>
+                </tr>`;
             }).join('')}
-            ${ords.length === 0 ? `<tr><td colspan="7"><div class="empty-state">${t('noOrders')}</div></td></tr>` : ''}</table></div></div></div>`;
+            ${ords.length===0?`<tr><td colspan="9"><div class="empty-state">${t('noOrders')}</div></td></tr>`:''}</table></div></div></div>`;
         }
 
         function updateOS(oid, st) {
@@ -2373,9 +2426,8 @@
                     o.commissionStatus = 'frozen';
                     o.frozenAt = new Date().toISOString();
                     LD.notifications.unshift({ id: lgid(), userId: m.id, message: '⏳ عمولة الطلب #' + oid.replace(
-                            'id_', '') + ' (' + o.commissionAmount +
-                            ' ₺) تم تجميدها لمدة يومين', type: 'commission', read: false,
-                        timestamp: new Date().toISOString() });
+                            'id_', '') + ' (' + o.commissionAmount + ' ₺) تم تجميدها لمدة يومين',
+                        type: 'commission', read: false, timestamp: new Date().toISOString() });
                 }
             } else if (st === returnedAr || st === returnedEn) {
                 o.status = st;
@@ -2403,8 +2455,8 @@
             if (searchId) ords = ords.filter(o => o.id.includes(searchId));
             container.innerHTML = `
             <div class="card animate-in"><div class="card-header"><h3>📦 ${t('myOrders')}</h3><div style="display:flex;gap:8px;align-items:center;"><input class="form-input" id="myOrderSearch" placeholder="${t('searchOrderId')}" style="max-width:200px;" oninput="renderMyOrders(document.getElementById('contentArea'))"><button class="btn btn-sm" onclick="renderMyOrders(document.getElementById('contentArea'))">🔍</button></div></div><div class="card-body"><div class="table-wrap"><table><tr><th>${t('orderId')}</th><th>${t('name')}</th><th>${t('amount')}</th><th>${t('commission')}</th><th>${t('status')}</th></tr>
-            ${ords.map(o => `<tr><td>${o.id.replace('id_', '')}</td><td>${o.customer.name} (${o.customer.phone1})</td><td>${o.totalAmount} ₺</td><td>${o.commissionAmount} ₺ <small>(${o.commissionStatus})</small></td><td><span class="status-pill ${getStatusClass(o.status)}">${o.status}</span></td></tr>`).join('')}
-            ${ords.length === 0 ? `<tr><td colspan="5"><div class="empty-state">${t('noOrders')}</div></td></tr>` : ''}</table></div></div></div>`;
+            ${ords.map(o => `<tr><td>${o.id.replace('id_','')}</td><td>${o.customer.name} (${o.customer.phone1})</td><td>${o.totalAmount} ₺</td><td>${o.commissionAmount} ₺ <small>(${o.commissionStatus})</small></td><td><span class="status-pill ${getStatusClass(o.status)}">${o.status}</span></td></tr>`).join('')}
+            ${ords.length===0?`<tr><td colspan="5"><div class="empty-state">${t('noOrders')}</div></td></tr>`:''}</table></div></div></div>`;
         }
 
         // ==================== MARKETERS ====================
@@ -2412,65 +2464,63 @@
             const ms = LD.users.filter(u => u.role === 'marketer');
             container.innerHTML = `
             <div class="card animate-in"><div class="card-header"><h3>👥 ${t('marketers')}</h3><button class="btn btn-accent btn-sm" onclick="openMarketerModal()"><i class="fas fa-plus"></i> ${t('add')}</button></div>
-            <div class="card-body"><div class="table-wrap"><table><tr><th>${t('name')}</th><th>${t('phone')}</th><th>${t('balance')}</th><th>${t('sales')}</th><th>%</th><th>${t('actions')}</th></tr>
+            <div class="card-body"><div class="table-wrap"><table><tr><th>${t('name')}</th><th>🏪</th><th>${t('phone')}</th><th>${t('balance')}</th><th>${t('sales')}</th><th>%</th><th>${t('actions')}</th></tr>
             ${ms.map(m => `<tr>
-                <td>${m.name} ${m.banned ? '<span class="status-pill rejected">🚫 ' + (m.banReason || t('banned')) + '</span>' : ''}</td>
+                <td>${m.name} ${m.banned?'<span class="status-pill rejected">🚫 '+(m.banReason||t('banned'))+'</span>':''}</td>
+                <td><small>${m.pageName||'—'}</small></td>
                 <td>${m.phone}</td>
                 <td>${m.balance} ₺</td>
-                <td>${LD.orders.filter(o => o.marketerId === m.id).length}</td>
+                <td>${LD.orders.filter(o=>o.marketerId===m.id).length}</td>
                 <td>${m.commissionRate}%</td>
                 <td style="display:flex;gap:4px;">
                     <button class="btn btn-xs btn-accent" onclick="openBonusModal('${m.id}')">💵</button>
                     <button class="btn btn-xs" onclick="openMarketerModal('${m.id}')">✏️</button>
-                    <button class="btn btn-xs btn-danger" onclick="banMarketer('${m.id}')">${m.banned ? t('unban') : t('ban')}</button>
+                    <button class="btn btn-xs btn-danger" onclick="banMarketer('${m.id}')">${m.banned?t('unban'):t('ban')}</button>
                 </td></tr>`).join('')}</table></div></div></div>`;
         }
 
         function banMarketer(mid) {
             const m = findUser(mid);
             if (!m || m.role !== 'marketer') return;
-            if (m.banned) {
-                m.banned = false;
+            if (m.banned) { m.banned = false;
                 m.banReason = '';
                 lsave();
                 navigateTo('marketers');
-                showToast('✅ ' + t('unban') + ' ' + m.name, 'success');
-            } else {
-                const reason = prompt(t('banReason') + ':');
-                if (reason !== null) {
-                    m.banned = true;
+                showToast('✅ ' + t('unban') + ' ' + m.name, 'success'); } else { const reason = prompt(t('banReason') +
+                    ':'); if (reason !== null) { m.banned = true;
                     m.banReason = reason.trim();
                     lsave();
                     navigateTo('marketers');
-                    showToast('🚫 ' + t('ban') + ' ' + m.name, 'info');
-                }
-            }
+                    showToast('🚫 ' + t('ban') + ' ' + m.name, 'info'); } }
         }
 
         function openMarketerModal(mid = null) {
             const m = mid ? findUser(mid) : null;
             document.getElementById('modalContainer').innerHTML = `
-            <div class="modal-overlay" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modal-header"><h3>${m ? t('editMarketer') : t('addMarketer')}</h3><button class="btn-icon" onclick="closeModal()"><i class="fas fa-times"></i></button></div>
-            <div class="modal-body"><div class="form-group"><label class="form-label">${t('name')}</label><input class="form-input" id="mn" value="${m?.name || ''}"></div>
-            <div class="form-group"><label class="form-label">📱 ${t('phone')}</label><input class="form-input" id="mp" value="${m?.phone || ''}"></div>
-            <div class="form-group"><label class="form-label">📧 ${t('email')}</label><input class="form-input" id="me" value="${m?.email || ''}"></div>
-            <div class="form-group"><label class="form-label">🔑 ${t('password')}</label><input class="form-input" type="password" id="mps" value="${m?.password || ''}"></div>
-            <div class="form-group"><label class="form-label">% ${t('commission')}</label><input class="form-input" type="number" id="mc" value="${m?.commissionRate || LD.settings.defaultCommissionRate}"></div></div>
-            <div class="modal-footer"><button class="btn" onclick="closeModal()">${t('cancel')}</button><button class="btn btn-accent" onclick="saveMarketer('${mid || ''}')">${t('save')}</button></div></div></div>`;
+            <div class="modal-overlay" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modal-header"><h3>${m?t('editMarketer'):t('addMarketer')}</h3><button class="btn-icon" onclick="closeModal()"><i class="fas fa-times"></i></button></div>
+            <div class="modal-body"><div class="form-group"><label class="form-label">${t('name')}</label><input class="form-input" id="mn" value="${m?.name||''}"></div>
+            <div class="form-group"><label class="form-label">🏪 ${t('pageName')}</label><input class="form-input" id="mpn" value="${m?.pageName||''}"></div>
+            <div class="form-group"><label class="form-label">📱 ${t('phone')}</label><input class="form-input" id="mp" value="${m?.phone||''}"></div>
+            <div class="form-group"><label class="form-label">📧 ${t('email')}</label><input class="form-input" id="me" value="${m?.email||''}"></div>
+            <div class="form-group"><label class="form-label">🔑 ${t('password')}</label><input class="form-input" type="password" id="mps" value="${m?.password||''}"></div>
+            <div class="form-group"><label class="form-label">% ${t('commission')}</label><input class="form-input" type="number" id="mc" value="${m?.commissionRate||LD.settings.defaultCommissionRate}"></div></div>
+            <div class="modal-footer"><button class="btn" onclick="closeModal()">${t('cancel')}</button><button class="btn btn-accent" onclick="saveMarketer('${mid||''}')">${t('save')}</button></div></div></div>`;
         }
 
         function saveMarketer(mid) {
             const n = document.getElementById('mn').value.trim(),
+                pn = document.getElementById('mpn').value.trim(),
                 p = document.getElementById('mp').value.trim(),
                 e = document.getElementById('me').value.trim(),
                 ps = document.getElementById('mps').value.trim(),
                 c = parseFloat(document.getElementById('mc').value) || LD.settings.defaultCommissionRate;
             if (!n || !p || !ps) return showToast(t('requiredFields'), 'error');
-            if (mid) { const m = findUser(mid); if (m) Object.assign(m, { name: n, phone: p, email: e, password: ps,
-                    commissionRate: c }); } else LD.users.push({ id: lgid(), name: n, phone: p, email: e,
-                password: ps, role: 'marketer', balance: 0, salesCount: 0, commissionRate: c,
+            if (mid) { const m = findUser(mid); if (m) Object.assign(m, { name: n, pageName: pn, phone: p, email: e,
+                    password: ps, commissionRate: c }); } else LD.users.push({ id: lgid(), name: n, phone: p,
+                email: e, password: ps, role: 'marketer', balance: 0, salesCount: 0, commissionRate: c,
                 referralCode: 'R' + Date.now().toString(36).toUpperCase(), referredBy: null, permissions: [],
-                createdAt: new Date().toISOString(), active: true, banned: false, banReason: '' });
+                pageName: pn || n, createdAt: new Date().toISOString(), active: true, banned: false,
+                banReason: '' });
             lsave();
             closeModal();
             navigateTo('marketers');
@@ -2511,9 +2561,9 @@
         function renderWithdrawals(container) {
             const wds = LD.withdrawals.slice().reverse();
             container.innerHTML = `
-            <div class="card animate-in"><div class="card-header"><h3>💳 ${t('withdrawals')}</h3></div><div class="card-body"><div class="table-wrap"><table><tr><th>#</th><th>${t('marketer')}</th><th>${t('method')}</th><th>${t('amount')}</th><th>${t('status')}</th><th>${t('actions')}</th></tr>
-            ${wds.map(w => `<tr><td>${w.id.replace('id_', '')}</td><td>${findUser(w.marketerId)?.name || '—'}</td><td>${w.method}</td><td>${w.amount} ₺</td><td><span class="status-pill ${getStatusClass(w.status)}">${w.status}</span></td>
-            <td>${w.status === 'قيد المراجعة' || w.status === 'Under Review' ? `<button class="btn btn-xs btn-success" onclick="appWD('${w.id}')">✅ ${t('approve')}</button><button class="btn btn-xs btn-danger" onclick="rejWD('${w.id}')">❌ ${t('reject')}</button>` : '—'}</td></tr>`).join('')}</table></div></div></div>`;
+            <div class="card animate-in"><div class="card-header"><h3>💳 ${t('withdrawals')}</h3></div><div class="card-body"><div class="table-wrap"><table><tr><th>#</th><th>${t('marketer')}</th><th>${t('method')}</th><th>${t('accountNumber')}</th><th>${t('amount')}</th><th>${t('status')}</th><th>${t('actions')}</th></tr>
+            ${wds.map(w => `<tr><td>${w.id.replace('id_','')}</td><td>${findUser(w.marketerId)?.name||'—'} (${findUser(w.marketerId)?.pageName||''})</td><td>${w.method}</td><td>${w.accountNumber}</td><td>${w.amount} ₺</td><td><span class="status-pill ${getStatusClass(w.status)}">${w.status}</span></td>
+            <td>${w.status==='قيد المراجعة'||w.status==='Under Review'?`<button class="btn btn-xs btn-success" onclick="appWD('${w.id}')">✅ ${t('approve')}</button><button class="btn btn-xs btn-danger" onclick="rejWD('${w.id}')">❌ ${t('reject')}</button>`:'—'}</td></tr>`).join('')}</table></div></div></div>`;
         }
 
         function openWithdrawModal() {
@@ -2570,8 +2620,8 @@
             container.innerHTML = `
             <button class="btn btn-accent animate-in" style="margin-bottom:14px;" onclick="openWithdrawModal()"><i class="fas fa-wallet"></i> ${t('withdraw')}</button>
             <p class="animate-in" style="color:var(--text-tertiary);margin-bottom:14px;font-size:0.8rem;">⏳ ${t('onlyThursday')}</p>
-            <div class="card animate-in"><div class="card-header"><h3>💳 ${t('myWithdrawals')}</h3></div><div class="card-body"><div class="table-wrap"><table><tr><th>${t('method')}</th><th>${t('amount')}</th><th>${t('status')}</th></tr>
-            ${wds.map(w => `<tr><td>${w.method}</td><td>${w.amount} ₺</td><td><span class="status-pill ${getStatusClass(w.status)}">${w.status}</span></td></tr>`).join('')}</table></div></div></div>`;
+            <div class="card animate-in"><div class="card-header"><h3>💳 ${t('myWithdrawals')}</h3></div><div class="card-body"><div class="table-wrap"><table><tr><th>${t('method')}</th><th>${t('accountNumber')}</th><th>${t('amount')}</th><th>${t('status')}</th></tr>
+            ${wds.map(w => `<tr><td>${w.method}</td><td>${w.accountNumber}</td><td>${w.amount} ₺</td><td><span class="status-pill ${getStatusClass(w.status)}">${w.status}</span></td></tr>`).join('')}</table></div></div></div>`;
         }
 
         // ==================== REFERRALS ====================
@@ -2581,7 +2631,7 @@
             container.innerHTML = `
             <div class="card animate-in" style="margin-bottom:14px;"><div class="card-header"><h3>🔗 ${t('myReferrals')}</h3></div><div class="card-body"><div style="display:flex;gap:8px;"><input class="form-input" value="${rl}" readonly id="rli" style="direction:ltr;"><button class="btn btn-accent" onclick="copyRef()"><i class="fas fa-copy"></i> ${t('copy')}</button></div></div></div>
             <div class="card animate-in"><div class="card-header"><h3>👥 ${t('referred')}</h3></div><div class="card-body"><div class="table-wrap"><table><tr><th>${t('name')}</th><th>${t('sales')}</th><th>${t('referralThreshold')}</th><th>${t('referralBonus')}</th></tr>
-            ${refs.map(u => { const s = LD.orders.filter(o => o.marketerId === u.id && o.commissionStatus === 'released').length; const g = LD.settings.referralThreshold; return `<tr><td>${u.name}</td><td>${s}/${g}</td><td>${g}</td><td>${s >= g ? `<span class="status-pill received">${LD.settings.referralBonus} ₺</span>` : '<span class="status-pill pending">⏳</span>'}</td></tr>`; }).join('')}</table></div></div></div>`;
+            ${refs.map(u => { const s = LD.orders.filter(o=>o.marketerId===u.id&&o.commissionStatus==='released').length; const g = LD.settings.referralThreshold; return `<tr><td>${u.name}</td><td>${s}/${g}</td><td>${g}</td><td>${s>=g?`<span class="status-pill received">${LD.settings.referralBonus} ₺</span>`:'<span class="status-pill pending">⏳</span>'}</td></tr>`; }).join('')}</table></div></div></div>`;
         }
 
         function copyRef() { const i = document.getElementById('rli'); if (i) { i.select();
@@ -2592,10 +2642,10 @@
         function renderStorefront(container) {
             const ps = LD.products.filter(p => p.active);
             container.innerHTML = `
-            <div class="animate-in" style="text-align:center;margin-bottom:20px;"><h2 style="color:var(--accent);font-size:1.5rem;">🏪 ${currentUser.name}</h2>
+            <div class="animate-in" style="text-align:center;margin-bottom:20px;"><h2 style="color:var(--accent);font-size:1.5rem;">🏪 ${currentUser.pageName||currentUser.name}</h2>
             <p style="color:var(--text-tertiary);font-size:0.78rem;">${window.location.origin}?ref=${currentUser.referralCode}</p>
             <button class="btn btn-accent btn-sm" onclick="copyRef()"><i class="fas fa-share-alt"></i> ${t('share')}</button></div>
-            <div class="grid-3">${ps.map((p, i) => { const off = LD.offers.find(o => o.productId === p.id && o.active); const pr = off ? Math.round(p.basePrice * (1 - off.discountPercent / 100)) : p.basePrice; return `<div class="card animate-in" style="animation-delay:${i * 0.04}s;overflow:hidden;"><img src="${p.colors[0]?.images[0] || 'https://picsum.photos/seed/sf/400/400'}" class="img-preview" style="height:170px;"><div class="card-body"><h4>${p.name}</h4><p style="font-weight:900;font-size:1.05rem;">${pr} ₺</p></div><div class="card-footer"><button class="btn btn-accent btn-sm" style="width:100%;" onclick="addToCart('${p.id}')">📲 ${t('orderNow')}</button></div></div>`; }).join('')}</div>`;
+            <div class="grid-3">${ps.map((p,i)=>{const off=LD.offers.find(o=>o.productId===p.id&&o.active);const pr=off?Math.round(p.basePrice*(1-off.discountPercent/100)):p.basePrice;return`<div class="card animate-in" style="animation-delay:${i*0.04}s;overflow:hidden;"><img src="${p.colors[0]?.images[0]||'https://picsum.photos/seed/sf/400/400'}" class="img-preview" style="height:170px;"><div class="card-body"><h4>${p.name}</h4><p style="font-weight:900;font-size:1.05rem;">${pr} ₺</p></div><div class="card-footer"><button class="btn btn-accent btn-sm" style="width:100%;" onclick="addToCart('${p.id}')">📲 ${t('orderNow')}</button></div></div>`;}).join('')}</div>`;
         }
 
         // ==================== OFFERS ====================
@@ -2603,13 +2653,13 @@
             container.innerHTML = `
             <div class="card animate-in"><div class="card-header"><h3>🏷️ ${t('offers')}</h3><button class="btn btn-accent btn-sm" onclick="openOfferModal()"><i class="fas fa-plus"></i> ${t('add')}</button></div>
             <div class="card-body"><div class="table-wrap"><table><tr><th>${t('product')}</th><th>%</th><th>${t('date')}</th><th>${t('publicOffer')}</th><th></th></tr>
-            ${LD.offers.map(o => `<tr><td>${findProduct(o.productId)?.name || o.productId}</td><td>${o.discountPercent}%</td><td>${o.startDate} → ${o.endDate}</td><td>${o.public ? t('publicOffer') : t('notPublic')}</td><td><button class="btn btn-xs btn-danger" onclick="deleteOffer('${o.id}')">🗑️</button></td></tr>`).join('')}</table></div></div></div>`;
+            ${LD.offers.map(o=>`<tr><td>${findProduct(o.productId)?.name||o.productId}</td><td>${o.discountPercent}%</td><td>${o.startDate} → ${o.endDate}</td><td>${o.public?t('publicOffer'):t('notPublic')}</td><td><button class="btn btn-xs btn-danger" onclick="deleteOffer('${o.id}')">🗑️</button></td></tr>`).join('')}</table></div></div></div>`;
         }
 
         function openOfferModal() {
             document.getElementById('modalContainer').innerHTML = `
             <div class="modal-overlay" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modal-header"><h3>🏷️ ${t('addOffer')}</h3><button class="btn-icon" onclick="closeModal()"><i class="fas fa-times"></i></button></div>
-            <div class="modal-body"><div class="form-group"><label class="form-label">${t('product')}</label><select class="form-select" id="op">${LD.products.map(p => `<option value="${p.id}">${p.name}</option>`).join('')}</select></div>
+            <div class="modal-body"><div class="form-group"><label class="form-label">${t('product')}</label><select class="form-select" id="op">${LD.products.map(p=>`<option value="${p.id}">${p.name}</option>`).join('')}</select></div>
             <div class="form-group"><label class="form-label">%</label><input class="form-input" type="number" id="opct" value="10"></div>
             <div class="form-group"><label class="form-label">${t('startDate')}</label><input class="form-input" type="date" id="osd"></div>
             <div class="form-group"><label class="form-label">${t('endDate')}</label><input class="form-input" type="date" id="oed"></div>
@@ -2643,72 +2693,56 @@
               <div class="card animate-in"><div class="card-header"><h3>📊 ${t('salesChart')}</h3></div><div class="card-body"><canvas id="sc" height="250"></canvas></div></div>
               <div class="card animate-in"><div class="card-header"><h3>🏆 ${t('topMarketers')}</h3></div><div class="card-body"><canvas id="mc" height="250"></canvas></div></div>
             </div>`;
-            setTimeout(() => {
-                const c1 = document.getElementById('sc');
-                if (c1) new Chart(c1, { type: 'bar', data: { labels: months,
-                        datasets: [{ label: t('sales'), data: [1200, 1900, 3000, 2500, 4200, 3800],
-                            backgroundColor: 'rgba(99,102,241,0.5)' }] },
-                    options: { responsive: true, plugins: { legend: { display: false } } } });
-                const c2 = document.getElementById('mc');
-                if (c2) new Chart(c2, { type: 'doughnut', data: { labels: ['Mohamed', 'Sara', 'Ahmed'],
-                        datasets: [{ data: [35, 18, 12],
+            setTimeout(() => { const c1 = document.getElementById('sc'); if (c1) new Chart(c1, { type: 'bar',
+                    data: { labels: months, datasets: [{ label: t('sales'), data: [1200, 1900, 3000, 2500, 4200,
+                                3800
+                            ], backgroundColor: 'rgba(99,102,241,0.5)' }] },
+                    options: { responsive: true, plugins: { legend: { display: false } } } }); const c2 = document
+                    .getElementById('mc'); if (c2) new Chart(c2, { type: 'doughnut',
+                    data: { labels: ['Mohamed', 'Sara', 'Ahmed'], datasets: [{ data: [35, 18, 12],
                             backgroundColor: ['#6366f1', '#10b981', '#f59e0b'] }] },
-                    options: { responsive: true, plugins: { legend: { position: 'bottom' } } } });
-            }, 400);
+                    options: { responsive: true, plugins: { legend: { position: 'bottom' } } } }); }, 400);
         }
 
         // ==================== AUDIT LOG ====================
         function renderAuditLog(container) {
-            container.innerHTML =
-                `<div class="card animate-in"><div class="card-header"><h3>📜 ${t('auditLog')}</h3></div><div class="card-body"><div class="table-wrap"><table><tr><th>${t('date')}</th><th>${t('user')}</th><th>${t('action')}</th><th>${t('details')}</th></tr>${LD.auditLog.slice(0, 80).map(l => `<tr><td>${new Date(l.timestamp).toLocaleString()}</td><td>${findUser(l.userId)?.name || l.userId}</td><td>${l.action}</td><td>${l.details}</td></tr>`).join('')}</table></div></div></div>`;
+            container.innerHTML = `<div class="card animate-in"><div class="card-header"><h3>📜 ${t('auditLog')}</h3></div><div class="card-body"><div class="table-wrap"><table><tr><th>${t('date')}</th><th>${t('user')}</th><th>${t('action')}</th><th>${t('details')}</th></tr>${LD.auditLog.slice(0,80).map(l=>`<tr><td>${new Date(l.timestamp).toLocaleString()}</td><td>${findUser(l.userId)?.name||l.userId}</td><td>${l.action}</td><td>${l.details}</td></tr>`).join('')}</table></div></div></div>`;
         }
 
         // ==================== SETTINGS ====================
         function renderSettings(container) {
-            container.innerHTML =
-                `<div class="card animate-in"><div class="card-header"><h3>⚙️ ${t('settings')}</h3></div><div class="card-body"><div class="form-group"><label class="form-label">💵 ${t('minWithdraw')} (₺)</label><input class="form-input" type="number" id="smw" value="${LD.settings.minWithdrawal}"></div><div class="form-group"><label class="form-label">🎯 ${t('referralThreshold')}</label><input class="form-input" type="number" id="srt" value="${LD.settings.referralThreshold}"></div><div class="form-group"><label class="form-label">🏆 ${t('referralBonus')} (₺)</label><input class="form-input" type="number" id="srb" value="${LD.settings.referralBonus}"></div><div class="form-group"><label class="form-label">% ${t('defaultComm')}</label><input class="form-input" type="number" id="sdc" value="${LD.settings.defaultCommissionRate}"></div><button class="btn btn-accent" onclick="saveSet()">${t('save')}</button></div></div>`;
+            container.innerHTML = `<div class="card animate-in"><div class="card-header"><h3>⚙️ ${t('settings')}</h3></div><div class="card-body"><div class="form-group"><label class="form-label">💵 ${t('minWithdraw')} (₺)</label><input class="form-input" type="number" id="smw" value="${LD.settings.minWithdrawal}"></div><div class="form-group"><label class="form-label">🎯 ${t('referralThreshold')}</label><input class="form-input" type="number" id="srt" value="${LD.settings.referralThreshold}"></div><div class="form-group"><label class="form-label">🏆 ${t('referralBonus')} (₺)</label><input class="form-input" type="number" id="srb" value="${LD.settings.referralBonus}"></div><div class="form-group"><label class="form-label">% ${t('defaultComm')}</label><input class="form-input" type="number" id="sdc" value="${LD.settings.defaultCommissionRate}"></div><button class="btn btn-accent" onclick="saveSet()">${t('save')}</button></div></div>`;
         }
 
-        function saveSet() {
-            LD.settings.minWithdrawal = parseFloat(document.getElementById('smw').value) || 200;
+        function saveSet() { LD.settings.minWithdrawal = parseFloat(document.getElementById('smw').value) || 200;
             LD.settings.referralThreshold = parseInt(document.getElementById('srt').value) || 50;
             LD.settings.referralBonus = parseFloat(document.getElementById('srb').value) || 300;
             LD.settings.defaultCommissionRate = parseFloat(document.getElementById('sdc').value) || 15;
             lsave();
-            showToast('✅ ' + t('savedSuccess'), 'success');
-        }
+            showToast('✅ ' + t('savedSuccess'), 'success'); }
 
         // ==================== NOTIFICATIONS ====================
-        function toggleNotifications() {
-            const dd = document.getElementById('notifDropdown');
-            dd.classList.toggle('show');
-            if (dd.classList.contains('show')) {
-                const ns = LD.notifications.filter(n => n.userId === currentUser?.id).slice(0, 20);
+        function toggleNotifications() { const dd = document.getElementById('notifDropdown');
+            dd.classList.toggle('show'); if (dd.classList.contains('show')) { const ns = LD.notifications.filter(n => n
+                    .userId === currentUser?.id).slice(0, 20);
                 dd.innerHTML = ns.length === 0 ? '<div class="notif-item">' + t('noNotifications') + '</div>' : ns.map(n =>
-                    `<div class="notif-item ${n.read ? '' : 'unread'}" onclick="markRead('${n.id}')"><p>${n.message}</p><small>${new Date(n.timestamp).toLocaleString()}</small></div>`
+                    `<div class="notif-item ${n.read?'':'unread'}" onclick="markRead('${n.id}')"><p>${n.message}</p><small>${new Date(n.timestamp).toLocaleString()}</small></div>`
                     ).join('');
                 ns.forEach(n => { n.read = true; });
                 lsave();
-                updateNotifBadge();
-            }
-        }
+                updateNotifBadge(); } }
 
-        function updateNotifBadge() {
-            const b = document.getElementById('notifBadge');
-            if (!currentUser) { b.classList.add('hidden'); return; }
-            const u = LD.notifications.filter(n => n.userId === currentUser.id && !n.read).length;
-            if (u > 0) { b.classList.remove('hidden');
-                b.textContent = u > 99 ? '99+' : u; } else b.classList.add('hidden');
-        }
+        function updateNotifBadge() { const b = document.getElementById('notifBadge'); if (!currentUser) { b.classList.add(
+                    'hidden'); return; } const u = LD.notifications.filter(n => n.userId === currentUser.id && !n.read)
+                .length; if (u > 0) { b.classList.remove('hidden');
+                b.textContent = u > 99 ? '99+' : u; } else b.classList.add('hidden'); }
 
         function markRead(nid) { const n = LD.notifications.find(x => x.id === nid); if (n) n.read = true;
             lsave();
             updateNotifBadge(); }
-        document.addEventListener('click', function(e) {
-            const b = document.getElementById('notifBell'),
-                d = document.getElementById('notifDropdown');
-            if (d && b && !b.contains(e.target) && !d.contains(e.target)) d.classList.remove('show');
-        });
+        document.addEventListener('click', function(e) { const b = document.getElementById('notifBell'),
+                d = document.getElementById('notifDropdown'); if (d && b && !b.contains(e.target) && !d.contains(e
+                    .target)) d.classList.remove('show'); });
 
         // ==================== INIT ====================
         (async function() {
@@ -2726,12 +2760,9 @@
             document.getElementById('fbLabel').textContent = t('fbGroup');
             document.getElementById('waLabel').textContent = t('whatsappSupport');
             showLogin();
-            console.log('🚀 Kiro Print Ready (Fully Bilingual)');
+            console.log('🚀 Kiro Print Ready (Fully Bilingual + Enhanced Details)');
             console.log('👑 Admin: adminzoz@kiro.print / 123456');
-            console.log('📢 All other registrations → Marketer accounts');
-            console.log('🎨 Animated UI with full English & Arabic support');
-            console.log('💾 Data synced with Supabase');
-            console.log('🌐 RTL/LTR auto-switching, support links on login page');
+            console.log('📢 New: Marketer page name, full customer details, withdrawal info visible');
         })();
     </script>
 </body>
