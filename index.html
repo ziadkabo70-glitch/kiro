@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiro Print - Affiliate Marketing Platform</title>
+    <title>Kero Print - Affiliate Marketing Platform</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -174,86 +174,40 @@
             animation: slideInLeft 0.5s var(--bounce);
         }
         @keyframes slideInRight {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
         @keyframes slideInLeft {
-            from {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.92);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.92); }
+            to { opacity: 1; transform: scale(1); }
         }
         @keyframes pulse {
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 var(--accent-glow);
-            }
-            50% {
-                box-shadow: 0 0 0 14px transparent;
-            }
+            0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow); }
+            50% { box-shadow: 0 0 0 14px transparent; }
         }
         @keyframes shimmer {
-            0% {
-                background-position: -200% 0;
-            }
-            100% {
-                background-position: 200% 0;
-            }
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
         }
         @keyframes float {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-8px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
         .animate-in {
             animation: fadeInUp 0.5s var(--bounce) both;
         }
-        .animate-in-delay-1 {
-            animation-delay: 0.05s;
-        }
-        .animate-in-delay-2 {
-            animation-delay: 0.1s;
-        }
-        .animate-in-delay-3 {
-            animation-delay: 0.15s;
-        }
-        .animate-in-delay-4 {
-            animation-delay: 0.2s;
-        }
+        .animate-in-delay-1 { animation-delay: 0.05s; }
+        .animate-in-delay-2 { animation-delay: 0.1s; }
+        .animate-in-delay-3 { animation-delay: 0.15s; }
+        .animate-in-delay-4 { animation-delay: 0.2s; }
         .sidebar-header {
             padding: 20px 16px;
             border-bottom: 1px solid var(--border);
@@ -271,18 +225,14 @@
             text-decoration: none;
             transition: transform var(--transition);
         }
-        .sidebar-logo:hover {
-            transform: scale(1.05);
-        }
+        .sidebar-logo:hover { transform: scale(1.05); }
         .sidebar-logo .logo-accent {
             background: linear-gradient(135deg, var(--accent), var(--accent-dark));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        .sidebar-logo .logo-text {
-            color: var(--text-primary);
-        }
+        .sidebar-logo .logo-text { color: var(--text-primary); }
         .sidebar-subtitle {
             font-size: 0.68rem;
             color: var(--text-tertiary);
@@ -294,9 +244,7 @@
             overflow-y: auto;
             padding: 10px 10px;
         }
-        .nav-section {
-            margin-bottom: 10px;
-        }
+        .nav-section { margin-bottom: 10px; }
         .nav-section-title {
             font-size: 0.65rem;
             text-transform: uppercase;
@@ -338,9 +286,7 @@
             border-color: var(--border-light);
             transform: translateX(-4px);
         }
-        [dir="ltr"] .nav-link:hover {
-            transform: translateX(4px);
-        }
+        [dir="ltr"] .nav-link:hover { transform: translateX(4px); }
         .nav-link.active {
             background: var(--accent-light);
             color: var(--accent);
@@ -385,10 +331,7 @@
             box-shadow: 0 2px 8px var(--accent-glow);
             animation: float 3s ease-in-out infinite;
         }
-        .user-info {
-            flex: 1;
-            min-width: 0;
-        }
+        .user-info { flex: 1; min-width: 0; }
         .user-name {
             font-weight: 700;
             font-size: 0.82rem;
@@ -397,10 +340,7 @@
             text-overflow: ellipsis;
             color: var(--text-primary);
         }
-        .user-role {
-            font-size: 0.68rem;
-            color: var(--text-tertiary);
-        }
+        .user-role { font-size: 0.68rem; color: var(--text-tertiary); }
         .main-content {
             flex: 1;
             margin-right: 270px;
@@ -409,10 +349,7 @@
             min-height: 100vh;
             transition: margin var(--transition);
         }
-        [dir="ltr"] .main-content {
-            margin-right: 0;
-            margin-left: 270px;
-        }
+        [dir="ltr"] .main-content { margin-right: 0; margin-left: 270px; }
         .topbar {
             background: var(--bg-elevated);
             border-bottom: 1px solid var(--border);
@@ -428,16 +365,8 @@
             box-shadow: var(--shadow-xs);
             backdrop-filter: blur(10px);
         }
-        .topbar-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .topbar-right {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        .topbar-left { display: flex; align-items: center; gap: 12px; }
+        .topbar-right { display: flex; align-items: center; gap: 8px; }
         .page-title {
             font-size: 1.2rem;
             font-weight: 800;
@@ -466,9 +395,7 @@
             position: relative;
             overflow: hidden;
         }
-        .btn:active {
-            transform: scale(0.96);
-        }
+        .btn:active { transform: scale(0.96); }
         .btn:hover {
             background: var(--bg-surface-hover);
             border-color: var(--border-strong);
@@ -560,13 +487,8 @@
             box-shadow: 0 2px 4px rgba(239, 68, 68, 0.3);
             animation: fadeInScale 0.3s var(--bounce);
         }
-        [dir="ltr"] .badge-count {
-            right: auto;
-            left: -4px;
-        }
-        .hidden {
-            display: none !important;
-        }
+        [dir="ltr"] .badge-count { right: auto; left: -4px; }
+        .hidden { display: none !important; }
         .content-area {
             flex: 1;
             padding: 24px;
@@ -601,9 +523,7 @@
             color: var(--text-primary);
             letter-spacing: -0.3px;
         }
-        .card-body {
-            padding: 20px;
-        }
+        .card-body { padding: 20px; }
         .card-footer {
             padding: 12px 20px;
             border-top: 1px solid var(--border);
@@ -645,55 +565,23 @@
             flex-shrink: 0;
             transition: transform var(--transition);
         }
-        .stat-card:hover .stat-icon-wrap {
-            transform: scale(1.15) rotate(-5deg);
-        }
-        [dir="ltr"] .stat-card:hover .stat-icon-wrap {
-            transform: scale(1.15) rotate(5deg);
-        }
-        .stat-icon-wrap.blue {
-            background: #eef2ff;
-            color: #6366f1;
-        }
-        .stat-icon-wrap.green {
-            background: #ecfdf5;
-            color: #10b981;
-        }
-        .stat-icon-wrap.amber {
-            background: #fffbeb;
-            color: #f59e0b;
-        }
-        .stat-icon-wrap.rose {
-            background: #fff1f2;
-            color: #f43f5e;
-        }
-        [data-theme="dark"] .stat-icon-wrap.blue {
-            background: #1e1b4b;
-            color: #818cf8;
-        }
-        [data-theme="dark"] .stat-icon-wrap.green {
-            background: #0a2e1a;
-            color: #6ee7b7;
-        }
-        [data-theme="dark"] .stat-icon-wrap.amber {
-            background: #3a2a0a;
-            color: #fcd34d;
-        }
-        [data-theme="dark"] .stat-icon-wrap.rose {
-            background: #3b1219;
-            color: #fca5a5;
-        }
+        .stat-card:hover .stat-icon-wrap { transform: scale(1.15) rotate(-5deg); }
+        [dir="ltr"] .stat-card:hover .stat-icon-wrap { transform: scale(1.15) rotate(5deg); }
+        .stat-icon-wrap.blue { background: #eef2ff; color: #6366f1; }
+        .stat-icon-wrap.green { background: #ecfdf5; color: #10b981; }
+        .stat-icon-wrap.amber { background: #fffbeb; color: #f59e0b; }
+        .stat-icon-wrap.rose { background: #fff1f2; color: #f43f5e; }
+        [data-theme="dark"] .stat-icon-wrap.blue { background: #1e1b4b; color: #818cf8; }
+        [data-theme="dark"] .stat-icon-wrap.green { background: #0a2e1a; color: #6ee7b7; }
+        [data-theme="dark"] .stat-icon-wrap.amber { background: #3a2a0a; color: #fcd34d; }
+        [data-theme="dark"] .stat-icon-wrap.rose { background: #3b1219; color: #fca5a5; }
         .stat-info .stat-value {
             font-size: 1.5rem;
             font-weight: 900;
             letter-spacing: -1px;
             line-height: 1.2;
         }
-        .stat-info .stat-label {
-            font-size: 0.75rem;
-            color: var(--text-tertiary);
-            font-weight: 500;
-        }
+        .stat-info .stat-label { font-size: 0.75rem; color: var(--text-tertiary); font-weight: 500; }
         .table-wrap {
             overflow-x: auto;
             border-radius: var(--radius-sm);
@@ -704,16 +592,12 @@
             border-collapse: collapse;
             font-size: 0.82rem;
         }
-        table th,
-        table td {
+        table th, table td {
             padding: 11px 14px;
             text-align: right;
             border-bottom: 1px solid var(--border-light);
         }
-        [dir="ltr"] table th,
-        [dir="ltr"] table td {
-            text-align: left;
-        }
+        [dir="ltr"] table th, [dir="ltr"] table td { text-align: left; }
         table th {
             background: var(--bg-surface-alt);
             font-weight: 700;
@@ -725,12 +609,8 @@
             position: sticky;
             top: 0;
         }
-        table tbody tr {
-            transition: background var(--transition-fast);
-        }
-        table tbody tr:hover {
-            background: var(--bg-surface-hover);
-        }
+        table tbody tr { transition: background var(--transition-fast); }
+        table tbody tr:hover { background: var(--bg-surface-hover); }
         .status-pill {
             display: inline-flex;
             align-items: center;
@@ -741,45 +621,16 @@
             font-weight: 700;
             white-space: nowrap;
         }
-        .status-pill.pending {
-            background: #fef3c7;
-            color: #92400e;
-        }
-        .status-pill.shipped {
-            background: #dbeafe;
-            color: #1e40af;
-        }
-        .status-pill.received {
-            background: #d1fae5;
-            color: #065f46;
-        }
-        .status-pill.rejected {
-            background: #fee2e2;
-            color: #991b1b;
-        }
-        .status-pill.returned {
-            background: #fce7f3;
-            color: #9d174d;
-        }
-        .status-pill.cancelled {
-            background: #e5e7eb;
-            color: #374151;
-        }
-        [data-theme="dark"] .status-pill.pending {
-            background: #3d2e00;
-            color: #fcd34d;
-        }
-        [data-theme="dark"] .status-pill.shipped {
-            background: #1e3050;
-            color: #93c5fd;
-        }
-        [data-theme="dark"] .status-pill.received {
-            background: #1a3a2a;
-            color: #6ee7b7;
-        }
-        .form-group {
-            margin-bottom: 14px;
-        }
+        .status-pill.pending { background: #fef3c7; color: #92400e; }
+        .status-pill.shipped { background: #dbeafe; color: #1e40af; }
+        .status-pill.received { background: #d1fae5; color: #065f46; }
+        .status-pill.rejected { background: #fee2e2; color: #991b1b; }
+        .status-pill.returned { background: #fce7f3; color: #9d174d; }
+        .status-pill.cancelled { background: #e5e7eb; color: #374151; }
+        [data-theme="dark"] .status-pill.pending { background: #3d2e00; color: #fcd34d; }
+        [data-theme="dark"] .status-pill.shipped { background: #1e3050; color: #93c5fd; }
+        [data-theme="dark"] .status-pill.received { background: #1a3a2a; color: #6ee7b7; }
+        .form-group { margin-bottom: 14px; }
         .form-label {
             display: block;
             margin-bottom: 5px;
@@ -788,9 +639,7 @@
             color: var(--text-secondary);
             letter-spacing: 0.3px;
         }
-        .form-input,
-        .form-select,
-        textarea {
+        .form-input, .form-select, textarea {
             width: 100%;
             padding: 11px 14px;
             border: 1.5px solid var(--border);
@@ -802,17 +651,12 @@
             transition: all var(--transition-fast);
             outline: none;
         }
-        .form-input:focus,
-        .form-select:focus,
-        textarea:focus {
+        .form-input:focus, .form-select:focus, textarea:focus {
             border-color: var(--accent);
             box-shadow: 0 0 0 3px var(--accent-glow);
             transform: translateY(-1px);
         }
-        textarea {
-            resize: vertical;
-            min-height: 70px;
-        }
+        textarea { resize: vertical; min-height: 70px; }
         .form-select {
             cursor: pointer;
             appearance: none;
@@ -822,11 +666,7 @@
             background-size: 16px;
             padding-right: 36px;
         }
-        [dir="ltr"] .form-select {
-            background-position: left 10px center;
-            padding-right: 14px;
-            padding-left: 36px;
-        }
+        [dir="ltr"] .form-select { background-position: left 10px center; padding-right: 14px; padding-left: 36px; }
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -838,14 +678,7 @@
             animation: fadeIn 0.2s ease;
             backdrop-filter: blur(4px);
         }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         .modal {
             background: var(--bg-surface);
             border-radius: var(--radius-lg);
@@ -858,14 +691,8 @@
             border: 1px solid var(--border);
         }
         @keyframes modalIn {
-            from {
-                transform: translateY(50px) scale(0.9);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0) scale(1);
-                opacity: 1;
-            }
+            from { transform: translateY(50px) scale(0.9); opacity: 0; }
+            to { transform: translateY(0) scale(1); opacity: 1; }
         }
         .modal-header {
             padding: 16px 20px;
@@ -879,13 +706,8 @@
             z-index: 1;
             border-radius: var(--radius-lg) var(--radius-lg) 0 0;
         }
-        .modal-header h3 {
-            font-weight: 800;
-            font-size: 1.05rem;
-        }
-        .modal-body {
-            padding: 20px;
-        }
+        .modal-header h3 { font-weight: 800; font-size: 1.05rem; }
+        .modal-body { padding: 20px; }
         .modal-footer {
             padding: 12px 20px;
             border-top: 1px solid var(--border);
@@ -924,45 +746,19 @@
             max-width: 420px;
             border: 1px solid var(--border);
         }
-        .toast.success {
-            border-right: 4px solid #10b981;
-        }
-        [dir="ltr"] .toast.success {
-            border-right: none;
-            border-left: 4px solid #10b981;
-        }
-        .toast.error {
-            border-right: 4px solid #ef4444;
-        }
-        [dir="ltr"] .toast.error {
-            border-right: none;
-            border-left: 4px solid #ef4444;
-        }
-        .toast.info {
-            border-right: 4px solid #3b82f6;
-        }
-        [dir="ltr"] .toast.info {
-            border-right: none;
-            border-left: 4px solid #3b82f6;
-        }
+        .toast.success { border-right: 4px solid #10b981; }
+        [dir="ltr"] .toast.success { border-right: none; border-left: 4px solid #10b981; }
+        .toast.error { border-right: 4px solid #ef4444; }
+        [dir="ltr"] .toast.error { border-right: none; border-left: 4px solid #ef4444; }
+        .toast.info { border-right: 4px solid #3b82f6; }
+        [dir="ltr"] .toast.info { border-right: none; border-left: 4px solid #3b82f6; }
         @keyframes toastIn {
-            from {
-                opacity: 0;
-                transform: translateY(-40px) scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            from { opacity: 0; transform: translateY(-40px) scale(0.8); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
         @keyframes toastOut {
-            from {
-                opacity: 1;
-            }
-            to {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
+            from { opacity: 1; }
+            to { opacity: 0; transform: translateY(-20px); }
         }
         .grid-2 {
             display: grid;
@@ -989,13 +785,8 @@
             display: none;
             animation: fadeInScale 0.25s var(--bounce);
         }
-        [dir="ltr"] .notif-dropdown {
-            left: auto;
-            right: 0;
-        }
-        .notif-dropdown.show {
-            display: block;
-        }
+        [dir="ltr"] .notif-dropdown { left: auto; right: 0; }
+        .notif-dropdown.show { display: block; }
         .notif-item {
             padding: 12px 14px;
             border-bottom: 1px solid var(--border-light);
@@ -1003,13 +794,8 @@
             cursor: pointer;
             transition: background var(--transition-fast);
         }
-        .notif-item:hover {
-            background: var(--bg-surface-hover);
-        }
-        .notif-item.unread {
-            background: var(--accent-light);
-            font-weight: 700;
-        }
+        .notif-item:hover { background: var(--bg-surface-hover); }
+        .notif-item.unread { background: var(--accent-light); font-weight: 700; }
         .img-thumb {
             width: 55px;
             height: 55px;
@@ -1018,9 +804,7 @@
             border: 1px solid var(--border);
             transition: transform var(--transition);
         }
-        .img-thumb:hover {
-            transform: scale(1.15);
-        }
+        .img-thumb:hover { transform: scale(1.15); }
         .img-preview {
             width: 100%;
             max-height: 200px;
@@ -1029,21 +813,14 @@
             border: 1px solid var(--border);
             transition: transform var(--transition-slow);
         }
-        .img-preview:hover {
-            transform: scale(1.03);
-        }
+        .img-preview:hover { transform: scale(1.03); }
         .empty-state {
             text-align: center;
             padding: 40px 20px;
             color: var(--text-tertiary);
             animation: fadeInUp 0.5s var(--bounce);
         }
-        .empty-state i {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            opacity: 0.4;
-            animation: float 3s ease-in-out infinite;
-        }
+        .empty-state i { font-size: 3rem; margin-bottom: 10px; opacity: 0.4; animation: float 3s ease-in-out infinite; }
         .highlight-box {
             background: var(--accent-light);
             border: 2px dashed var(--accent);
@@ -1054,11 +831,7 @@
             font-size: 0.82rem;
             animation: fadeInScale 0.4s var(--bounce);
         }
-        .divider {
-            border: none;
-            border-top: 1px solid var(--border);
-            margin: 14px 0;
-        }
+        .divider { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
         .tag {
             display: inline-block;
             padding: 3px 8px;
@@ -1079,10 +852,7 @@
             vertical-align: middle;
             box-shadow: var(--shadow-xs);
         }
-        .color-swatch:hover {
-            transform: scale(1.3);
-            border-color: var(--accent);
-        }
+        .color-swatch:hover { transform: scale(1.3); border-color: var(--accent); }
         .tabs {
             display: flex;
             gap: 2px;
@@ -1104,122 +874,49 @@
             transition: all var(--transition-fast);
             white-space: nowrap;
         }
-        .tab-btn.active {
-            color: var(--accent);
-            border-bottom-color: var(--accent);
-            font-weight: 800;
-        }
-        .tab-btn:hover {
-            color: var(--text-primary);
-        }
-        .mobile-menu-btn {
-            display: none;
-        }
-        .mobile-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 99;
-        }
+        .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 800; }
+        .tab-btn:hover { color: var(--text-primary); }
+        .mobile-menu-btn { display: none; }
+        .mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); z-index: 99; }
         .skeleton {
             background: linear-gradient(90deg, var(--bg-surface-alt) 25%, var(--bg-surface-hover) 50%, var(--bg-surface-alt) 75%);
             background-size: 200% 100%;
             animation: shimmer 1.5s infinite;
             border-radius: var(--radius-xs);
         }
-        .color-entry {
-            display: flex;
-            gap: 8px;
-            align-items: flex-end;
-            margin-bottom: 8px;
-            flex-wrap: wrap;
-        }
-        .color-entry input {
-            flex: 1;
-            min-width: 100px;
-        }
-        .support-links {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 12px;
-        }
-        .login-support {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 18px;
-            padding-top: 14px;
-            border-top: 1px solid var(--border);
-        }
+        .color-entry { display: flex; gap: 8px; align-items: flex-end; margin-bottom: 8px; flex-wrap: wrap; }
+        .color-entry input { flex: 1; min-width: 100px; }
+        .support-links { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 12px; }
+        .login-support { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border); }
         .order-detail-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 8px;
             font-size: 0.78rem;
         }
-        .order-detail-grid span {
-            color: var(--text-tertiary);
-        }
-        .order-detail-grid strong {
-            color: var(--text-primary);
-        }
+        .order-detail-grid span { color: var(--text-tertiary); }
+        .order-detail-grid strong { color: var(--text-primary); }
         @media (max-width: 900px) {
             .sidebar {
                 right: -290px;
+                transition: right 0.3s ease;
             }
-            [dir="ltr"] .sidebar {
-                left: -290px;
-            }
-            .sidebar.open {
-                right: 0;
-            }
-            [dir="ltr"] .sidebar.open {
-                left: 0;
-            }
-            .main-content {
-                margin-right: 0 !important;
-                margin-left: 0 !important;
-            }
-            .mobile-menu-btn {
-                display: flex !important;
-            }
-            .mobile-overlay.active {
-                display: block;
-            }
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .grid-2,
-            .grid-3 {
-                grid-template-columns: 1fr;
-            }
-            .content-area {
-                padding: 14px;
-            }
-            .topbar {
-                padding: 10px 14px;
-            }
-            .order-detail-grid {
-                grid-template-columns: 1fr;
-            }
+            [dir="ltr"] .sidebar { left: -290px; right: auto; }
+            .sidebar.open { right: 0; }
+            [dir="ltr"] .sidebar.open { left: 0; }
+            .main-content { margin-right: 0 !important; margin-left: 0 !important; }
+            .mobile-menu-btn { display: flex !important; }
+            .mobile-overlay.active { display: block; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .content-area { padding: 14px; }
+            .topbar { padding: 10px 14px; }
+            .order-detail-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 480px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            .btn {
-                padding: 7px 10px;
-                font-size: 0.72rem;
-            }
-            .btn-icon {
-                width: 32px;
-                height: 32px;
-                font-size: 0.85rem;
-            }
+            .stats-grid { grid-template-columns: 1fr; }
+            .btn { padding: 7px 10px; font-size: 0.72rem; }
+            .btn-icon { width: 32px; height: 32px; font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -1228,7 +925,7 @@
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <a class="sidebar-logo" onclick="navigateTo('dashboard')">
-                    <span class="logo-accent">Kiro</span><span class="logo-text">Print</span>
+                    <span class="logo-accent">Kero</span><span class="logo-text">Print</span>
                 </a>
                 <p class="sidebar-subtitle" id="sidebarSubtitle">Affiliate Marketing Platform</p>
                 <div class="support-links">
@@ -1281,8 +978,7 @@
     <script>
         // ==================== SUPABASE ====================
         const SUPABASE_URL = 'https://nkwjjzpqlwpupdkpmmhw.supabase.co';
-        const SUPABASE_KEY =
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5rd2pqenBxbHdwdXBka3BtbWh3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc1NTcxNDMsImV4cCI6MjA5MzEzMzE0M30.bWk-nGebTO7ByKF6Xl9Y-x67Q46PoHyV2CV-TqnLTxY';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5rd2pqenBxbHdwdXBka3BtbWh3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc1NTcxNDMsImV4cCI6MjA5MzEzMzE0M30.bWk-nGebTO7ByKF6Xl9Y-x67Q46PoHyV2CV-TqnLTxY';
         const ADMIN_EMAIL = 'adminzoz@kiro.print';
         const ADMIN_PASS = '123456';
         let supabase;
@@ -1306,6 +1002,7 @@
             transactions: [],
             auditLog: [],
             notifications: [],
+            categories: [], // new: product categories
             settings: {
                 theme: 'light',
                 accent: 'indigo',
@@ -1336,9 +1033,9 @@
             try { state = await loadFromSupabase(); } catch (e) {}
             if (state) {
                 LD = state;
-                if (!LD.settings) LD.settings = { theme: 'light', accent: 'indigo', lang: 'ar', minWithdrawal: 200,
-                    withdrawalDay: 4, referralThreshold: 50, referralBonus: 300, defaultCommissionRate: 15 };
+                if (!LD.settings) LD.settings = { theme: 'light', accent: 'indigo', lang: 'ar', minWithdrawal: 200, withdrawalDay: 4, referralThreshold: 50, referralBonus: 300, defaultCommissionRate: 15 };
                 if (!LD.nid) LD.nid = 1;
+                if (!LD.categories) LD.categories = [];
                 LD.users.forEach(u => { if (u.pageName === undefined) u.pageName = ''; });
                 LD.orders.forEach(o => {
                     if (o.commissionStatus === undefined) o.commissionStatus = 'pending';
@@ -1346,44 +1043,26 @@
                     if (!o.frozenAt) o.frozenAt = null;
                 });
             } else {
-                try { const s = localStorage.getItem('kiro_v5'); if (s) LD = JSON.parse(s); if (!LD.settings) LD
-                        .settings = { theme: 'light', accent: 'indigo', lang: 'ar', minWithdrawal: 200,
-                            withdrawalDay: 4, referralThreshold: 50, referralBonus: 300,
-                        defaultCommissionRate: 15 }; if (!LD.nid) LD.nid = 1;
+                try { const s = localStorage.getItem('kero_v5'); if (s) LD = JSON.parse(s); if (!LD.settings) LD.settings = { theme: 'light', accent: 'indigo', lang: 'ar', minWithdrawal: 200, withdrawalDay: 4, referralThreshold: 50, referralBonus: 300, defaultCommissionRate: 15 }; if (!LD.nid) LD.nid = 1; if (!LD.categories) LD.categories = [];
                     LD.users.forEach(u => { if (u.pageName === undefined) u.pageName = ''; });
-                    LD.orders.forEach(o => { if (o.commissionStatus === undefined) o.commissionStatus =
-                            'pending'; if (!o.sellerPrice) o.sellerPrice = o.totalAmount / (o.items[0]
-                            ?.quantity || 1); if (!o.frozenAt) o.frozenAt = null; }); } catch (e) { lseed
-                    (); }
+                    LD.orders.forEach(o => { if (o.commissionStatus === undefined) o.commissionStatus = 'pending'; if (!o.sellerPrice) o.sellerPrice = o.totalAmount / (o.items[0]?.quantity || 1); if (!o.frozenAt) o.frozenAt = null; }); } catch (e) { lseed(); }
             }
             if (LD.users.length === 0) { lseed(); await saveToSupabase(LD); }
         }
 
-        async function lsave() { localStorage.setItem('kiro_v5', JSON.stringify(LD)); await saveToSupabase(LD); }
+        async function lsave() { localStorage.setItem('kero_v5', JSON.stringify(LD)); await saveToSupabase(LD); }
 
-        function lgid() { const id = 'id_' + (LD.nid++);
-            lsave(); return id; }
+        function lgid() { const id = 'id_' + (LD.nid++); lsave(); return id; }
 
         function lseed() {
             LD.users = [
-                { id: 'admin_001', name: 'Ahmed ElModir', phone: '01000000001', email: ADMIN_EMAIL, password: ADMIN_PASS,
-                    role: 'admin', balance: 0, salesCount: 0, commissionRate: 15, referralCode: 'ADMIN001',
-                    referredBy: null, permissions: ['all'], pageName: 'Main Admin', createdAt: new Date()
-                    .toISOString(), active: true, banned: false, banReason: '' },
-                { id: 'mark_001', name: 'Mohamed Ali', phone: '01011111111', email: 'mohamed@email.com',
-                    password: 'mark123', role: 'marketer', balance: 2500, salesCount: 35, commissionRate: 15,
-                    referralCode: 'REF001', referredBy: null, pageName: 'متجر محمد', createdAt: new Date()
-                    .toISOString(), active: true, banned: false, banReason: '' }
+                { id: 'admin_001', name: 'Ahmed ElModir', phone: '01000000001', email: ADMIN_EMAIL, password: ADMIN_PASS, role: 'admin', balance: 0, salesCount: 0, commissionRate: 15, referralCode: 'ADMIN001', referredBy: null, permissions: ['all'], pageName: 'Main Admin', createdAt: new Date().toISOString(), active: true, banned: false, banReason: '' },
+                { id: 'mark_001', name: 'Mohamed Ali', phone: '01011111111', email: 'mohamed@email.com', password: 'mark123', role: 'marketer', balance: 2500, salesCount: 35, commissionRate: 15, referralCode: 'REF001', referredBy: null, pageName: 'متجر محمد', createdAt: new Date().toISOString(), active: true, banned: false, banReason: '' }
             ];
             LD.products = [{
-                id: 'p1',
-                name: 'Kiro Cotton T-shirt',
-                description: 'High quality cotton t-shirt',
-                basePrice: 350,
-                colors: [{ colorName: 'Black', images: ['https://picsum.photos/seed/bts/400/400'], stock: 50 }, { colorName: 'White',
-                    images: ['https://picsum.photos/seed/wts/400/400'], stock: 30 }],
-                active: true,
-                createdAt: new Date().toISOString()
+                id: 'p1', name: 'Kero Cotton T-shirt', description: 'High quality cotton t-shirt', basePrice: 350,
+                colors: [{ colorName: 'Black', images: ['https://picsum.photos/seed/bts/400/400'], stock: 50 }, { colorName: 'White', images: ['https://picsum.photos/seed/wts/400/400'], stock: 30 }],
+                active: true, createdAt: new Date().toISOString(), categoryId: null
             }];
             LD.offers = [];
             LD.orders = [];
@@ -1391,8 +1070,31 @@
             LD.transactions = [];
             LD.auditLog = [];
             LD.notifications = [];
+            LD.categories = [];
             LD.nid = 20;
             lsave();
+        }
+
+        // ==================== SESSION PERSISTENCE ====================
+        const SESSION_KEY = 'kero_session';
+
+        function saveSession(userId) {
+            localStorage.setItem(SESSION_KEY, JSON.stringify({ userId }));
+        }
+
+        function clearSession() {
+            localStorage.removeItem(SESSION_KEY);
+        }
+
+        function getSessionUserId() {
+            const session = localStorage.getItem(SESSION_KEY);
+            if (!session) return null;
+            try {
+                const { userId } = JSON.parse(session);
+                return userId;
+            } catch (e) {
+                return null;
+            }
         }
 
         let currentUser = null;
@@ -1567,12 +1269,7 @@
                 orderPlacedMsg: 'تم تقديم الطلب',
                 copiedMsg: 'تم النسخ!',
                 deductCommissionQ: 'خصم العمولة؟',
-                jan: 'يناير',
-                feb: 'فبراير',
-                mar: 'مارس',
-                apr: 'أبريل',
-                may: 'مايو',
-                jun: 'يونيو',
+                jan: 'يناير', feb: 'فبراير', mar: 'مارس', apr: 'أبريل', may: 'مايو', jun: 'يونيو',
                 supportLinks: 'روابط الدعم',
                 themeColor: 'لون السمة',
                 darkMode: 'الوضع الليلي',
@@ -1581,7 +1278,14 @@
                 enterPageName: 'أدخل اسم صفحتك',
                 viewDetails: 'عرض التفاصيل',
                 orderDetails: 'تفاصيل الطلب',
-                allRights: 'جميع الحقوق محفوظة'
+                allRights: 'جميع الحقوق محفوظة',
+                categories: 'الأقسام',
+                category: 'القسم',
+                addCategory: 'إضافة قسم',
+                editCategory: 'تعديل القسم',
+                allCategories: 'كل الأقسام',
+                noCategories: 'لا توجد أقسام',
+                selectCategory: 'اختر القسم'
             },
             en: {
                 dashboard: 'Dashboard',
@@ -1747,12 +1451,7 @@
                 orderPlacedMsg: 'Order placed',
                 copiedMsg: 'Copied!',
                 deductCommissionQ: 'Deduct commission?',
-                jan: 'Jan',
-                feb: 'Feb',
-                mar: 'Mar',
-                apr: 'Apr',
-                may: 'May',
-                jun: 'Jun',
+                jan: 'Jan', feb: 'Feb', mar: 'Mar', apr: 'Apr', may: 'May', jun: 'Jun',
                 supportLinks: 'Support Links',
                 themeColor: 'Theme Color',
                 darkMode: 'Dark Mode',
@@ -1761,27 +1460,28 @@
                 enterPageName: 'Enter your page name',
                 viewDetails: 'View Details',
                 orderDetails: 'Order Details',
-                allRights: 'All Rights Reserved'
+                allRights: 'All Rights Reserved',
+                categories: 'Categories',
+                category: 'Category',
+                addCategory: 'Add Category',
+                editCategory: 'Edit Category',
+                allCategories: 'All Categories',
+                noCategories: 'No Categories',
+                selectCategory: 'Select Category'
             }
         };
 
-        function t(k) { return (trans[currentLang] && trans[currentLang][k]) ? trans[currentLang][k] : (trans['en'][k] ||
-                k); }
+        function t(k) { return (trans[currentLang] && trans[currentLang][k]) ? trans[currentLang][k] : (trans['en'][k] || k); }
 
         function applyTheme() {
             document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
             document.documentElement.setAttribute('data-accent', currentAccent);
-            const accentMap = { indigo: '#6366f1', emerald: '#10b981', rose: '#f43f5e', amber: '#f59e0b',
-                violet: '#8b5cf6', sky: '#0ea5e9' };
-            const darkMap = { indigo: '#4f46e5', emerald: '#059669', rose: '#e11d48', amber: '#d97706',
-                violet: '#7c3aed', sky: '#0284c7' };
-            const glowMap = { indigo: 'rgba(99,102,241,0.35)', emerald: 'rgba(16,185,129,0.35)',
-                rose: 'rgba(244,63,94,0.35)', amber: 'rgba(245,158,11,0.35)', violet: 'rgba(139,92,246,0.35)',
-                sky: 'rgba(14,165,233,0.35)' };
+            const accentMap = { indigo: '#6366f1', emerald: '#10b981', rose: '#f43f5e', amber: '#f59e0b', violet: '#8b5cf6', sky: '#0ea5e9' };
+            const darkMap = { indigo: '#4f46e5', emerald: '#059669', rose: '#e11d48', amber: '#d97706', violet: '#7c3aed', sky: '#0284c7' };
+            const glowMap = { indigo: 'rgba(99,102,241,0.35)', emerald: 'rgba(16,185,129,0.35)', rose: 'rgba(244,63,94,0.35)', amber: 'rgba(245,158,11,0.35)', violet: 'rgba(139,92,246,0.35)', sky: 'rgba(14,165,233,0.35)' };
             document.documentElement.style.setProperty('--accent', accentMap[currentAccent] || '#6366f1');
             document.documentElement.style.setProperty('--accent-dark', darkMap[currentAccent] || '#4f46e5');
-            document.documentElement.style.setProperty('--accent-glow', glowMap[currentAccent] ||
-                'rgba(99,102,241,0.35)');
+            document.documentElement.style.setProperty('--accent-glow', glowMap[currentAccent] || 'rgba(99,102,241,0.35)');
         }
 
         function cycleAccent() {
@@ -1795,8 +1495,7 @@
         function toggleDarkMode() {
             isDarkMode = !isDarkMode;
             LD.settings.theme = isDarkMode ? 'dark' : 'light';
-            document.getElementById('darkModeBtn').innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' :
-                '<i class="fas fa-moon"></i>';
+            document.getElementById('darkModeBtn').innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
             lsave();
             applyTheme();
         }
@@ -1811,38 +1510,21 @@
             document.getElementById('fbLabel').textContent = t('fbGroup');
             document.getElementById('waLabel').textContent = t('whatsappSupport');
             lsave();
-            if (currentUser) { updateSidebar();
-                updateSidebarUserInfo();
-                navigateTo(currentView); } else { showLogin(document.querySelector('.tab-btn.active')?.dataset?.tab ||
-                    'login'); }
+            if (currentUser) { updateSidebar(); updateSidebarUserInfo(); navigateTo(currentView); } else { showLogin(document.querySelector('.tab-btn.active')?.dataset?.tab || 'login'); }
         }
 
-        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open');
-            document.getElementById('mobileOverlay').classList.toggle('active'); }
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.getElementById('mobileOverlay').classList.toggle('active'); }
+        function closeSidebar() { document.getElementById('sidebar').classList.remove('open'); document.getElementById('mobileOverlay').classList.remove('active'); }
 
-        function closeSidebar() { document.getElementById('sidebar').classList.remove('open');
-            document.getElementById('mobileOverlay').classList.remove('active'); }
-
-        function showToast(msg, type = 'info') { const c = document.getElementById('toastContainer'); const el = document
-                .createElement('div');
-            el.className = 'toast ' + type;
-            el.textContent = msg;
-            c.appendChild(el);
-            setTimeout(() => el.remove(), 3800); }
-
+        function showToast(msg, type = 'info') { const c = document.getElementById('toastContainer'); const el = document.createElement('div'); el.className = 'toast ' + type; el.textContent = msg; c.appendChild(el); setTimeout(() => el.remove(), 3800); }
         function closeModal() { document.getElementById('modalContainer').innerHTML = ''; }
 
         function getStatusClass(s) {
-            const m = { 'معلّق': 'pending', 'Pending': 'pending', 'تم الشحن': 'shipped', 'Shipped': 'shipped',
-                'تم الاستلام': 'received', 'Received': 'received', 'رفض دفع': 'rejected', 'Rejected': 'rejected',
-                'مرتجع': 'returned', 'Returned': 'returned', 'إلغاء': 'cancelled', 'Cancelled': 'cancelled',
-                'قيد المراجعة': 'pending', 'Under Review': 'pending', 'تم التحويل': 'received', 'Transferred': 'received',
-                'مرفوض': 'rejected' };
+            const m = { 'معلّق': 'pending', 'Pending': 'pending', 'تم الشحن': 'shipped', 'Shipped': 'shipped', 'تم الاستلام': 'received', 'Received': 'received', 'رفض دفع': 'rejected', 'Rejected': 'rejected', 'مرتجع': 'returned', 'Returned': 'returned', 'إلغاء': 'cancelled', 'Cancelled': 'cancelled', 'قيد المراجعة': 'pending', 'Under Review': 'pending', 'تم التحويل': 'received', 'Transferred': 'received', 'مرفوض': 'rejected' };
             return m[s] || 'pending';
         }
 
         function findUser(id) { return LD.users.find(u => u.id === id); }
-
         function findProduct(id) { return LD.products.find(p => p.id === id); }
 
         function processFrozenCommissions() {
@@ -1857,15 +1539,7 @@
                         if (marketer) {
                             marketer.balance += o.commissionAmount;
                             o.commissionStatus = 'released';
-                            LD.notifications.unshift({
-                                id: lgid(),
-                                userId: marketer.id,
-                                message: '✅ تم فك تجميد عمولة الطلب #' + o.id.replace('id_', '') +
-                                    ' وإضافتها لرصيدك (' + o.commissionAmount + ' ₺)',
-                                type: 'commission',
-                                read: false,
-                                timestamp: new Date().toISOString()
-                            });
+                            LD.notifications.unshift({ id: lgid(), userId: marketer.id, message: '✅ تم فك تجميد عمولة الطلب #' + o.id.replace('id_', '') + ' وإضافتها لرصيدك (' + o.commissionAmount + ' ₺)', type: 'commission', read: false, timestamp: new Date().toISOString() });
                         }
                         changed = true;
                     }
@@ -1877,13 +1551,14 @@
         // ==================== AUTH ====================
         function showLogin(tab = 'login') {
             currentUser = null;
+            clearSession();
             document.getElementById('sidebar').style.display = 'none';
             document.getElementById('contentArea').innerHTML = `
             <div style="display:flex;align-items:center;justify-content:center;min-height:80vh;padding:20px;flex-direction:column;">
               <div class="card" style="width:100%;max-width:460px;padding:30px 24px;animation:fadeInScale 0.5s var(--bounce);">
                 <div style="text-align:center;margin-bottom:20px;">
                   <div style="font-size:2.4rem;font-weight:900;letter-spacing:-2px;">
-                    <span style="background:linear-gradient(135deg,var(--accent),var(--accent-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Kiro</span>
+                    <span style="background:linear-gradient(135deg,var(--accent),var(--accent-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Kero</span>
                     <span style="color:var(--text-primary);">Print</span>
                   </div>
                   <p style="color:var(--text-tertiary);margin-top:4px;font-size:0.85rem;">${t('platform')}</p>
@@ -1897,16 +1572,16 @@
               <div class="login-support" style="width:100%;max-width:460px;margin-top:16px;text-align:center;">
                 <p style="font-size:0.75rem;color:var(--text-tertiary);margin-bottom:8px;">📞 ${t('supportLinks')}</p>
                 <div class="support-links">
-                  <a href="https://facebook.com/groups/CHANGE_ME" target="_blank" class="btn btn-sm" style="background:#1877f2;color:#fff;border:none;">
+                  <a href="https://www.facebook.com/share/1H8afzvxzF/" target="_blank" class="btn btn-sm" style="background:#1877f2;color:#fff;border:none;">
                     <i class="fab fa-facebook"></i> ${t('fbGroup')}
                   </a>
-                  <a href="https://wa.me/201000000000" target="_blank" class="btn btn-sm" style="background:#25d366;color:#fff;border:none;">
+                  <a href="https://wa.me/201002054480" target="_blank" class="btn btn-sm" style="background:#25d366;color:#fff;border:none;">
                     <i class="fab fa-whatsapp"></i> ${t('whatsappSupport')}
                   </a>
                 </div>
               </div>
             </div>`;
-            document.getElementById('pageTitle').textContent = 'Kiro Print';
+            document.getElementById('pageTitle').textContent = 'Kero Print';
         }
 
         function renderLoginForm() {
@@ -1936,27 +1611,20 @@
             if (email === ADMIN_EMAIL && pass === ADMIN_PASS) {
                 let admin = LD.users.find(u => u.email.toLowerCase() === ADMIN_EMAIL && u.role === 'admin');
                 if (!admin) {
-                    admin = { id: 'admin_001', name: 'Admin Zoz', phone: '01000000001', email: ADMIN_EMAIL,
-                        password: ADMIN_PASS, role: 'admin', balance: 0, salesCount: 0, commissionRate: 15,
-                        referralCode: 'ADMIN001', referredBy: null, permissions: ['all'], pageName: 'Main Admin',
-                        createdAt: new Date().toISOString(), active: true, banned: false, banReason: '' };
+                    admin = { id: 'admin_001', name: 'Admin Zoz', phone: '01000000001', email: ADMIN_EMAIL, password: ADMIN_PASS, role: 'admin', balance: 0, salesCount: 0, commissionRate: 15, referralCode: 'ADMIN001', referredBy: null, permissions: ['all'], pageName: 'Main Admin', createdAt: new Date().toISOString(), active: true, banned: false, banReason: '' };
                     LD.users.push(admin);
                     lsave();
                 }
                 currentUser = admin;
             } else {
-                const user = LD.users.find(u => (u.email.toLowerCase() === email || u.phone === email) && u.password ===
-                    pass);
+                const user = LD.users.find(u => (u.email.toLowerCase() === email || u.phone === email) && u.password === pass);
                 if (!user) return showToast(t('invalidLogin'), 'error');
-                if (!user.active || user.banned) return showToast(user.banned ? '🚫 ' + (user.banReason || t('banned')) :
-                    t('accountDisabled'), 'error');
-                if (user.role === 'admin' && user.email.toLowerCase() !== ADMIN_EMAIL) return showToast(t('invalidLogin'),
-                    'error');
+                if (!user.active || user.banned) return showToast(user.banned ? '🚫 ' + (user.banReason || t('banned')) : t('accountDisabled'), 'error');
                 currentUser = user;
             }
+            saveSession(currentUser.id);
             document.getElementById('sidebar').style.display = 'flex';
-            LD.auditLog.unshift({ id: lgid(), userId: currentUser.id, action: 'Login', details: currentUser.name +
-                    ' logged in', timestamp: new Date().toISOString() });
+            LD.auditLog.unshift({ id: lgid(), userId: currentUser.id, action: 'Login', details: currentUser.name + ' logged in', timestamp: new Date().toISOString() });
             lsave();
             renderApp();
             showToast('👋 ' + t('welcome') + ', ' + currentUser.name + '!', 'success');
@@ -1971,32 +1639,25 @@
             const ref = document.getElementById('regRef').value.trim();
             if (!name || !phone || !email || !pass) return showToast(t('fillAll'), 'error');
             if (email === ADMIN_EMAIL) return showToast(t('accountExists'), 'error');
-            if (LD.users.find(u => u.email.toLowerCase() === email || u.phone === phone)) return showToast(t(
-                'accountExists'), 'error');
+            if (LD.users.find(u => u.email.toLowerCase() === email || u.phone === phone)) return showToast(t('accountExists'), 'error');
             let referredBy = null;
-            if (ref) { const ru = LD.users.find(u => u.referralCode === ref && u.role === 'marketer'); if (ru)
-                    referredBy = ru.id; }
-            const newUser = { id: lgid(), name, phone, email, password: pass, role: 'marketer', balance: 0,
-                salesCount: 0, commissionRate: LD.settings.defaultCommissionRate, referralCode: 'REF' + Date.now()
-                    .toString(36).toUpperCase(), referredBy, permissions: [], pageName: pageName || name,
-                createdAt: new Date().toISOString(), active: true, banned: false, banReason: '' };
+            if (ref) { const ru = LD.users.find(u => u.referralCode === ref && u.role === 'marketer'); if (ru) referredBy = ru.id; }
+            const newUser = { id: lgid(), name, phone, email, password: pass, role: 'marketer', balance: 0, salesCount: 0, commissionRate: LD.settings.defaultCommissionRate, referralCode: 'REF' + Date.now().toString(36).toUpperCase(), referredBy, permissions: [], pageName: pageName || name, createdAt: new Date().toISOString(), active: true, banned: false, banReason: '' };
             LD.users.push(newUser);
-            LD.auditLog.unshift({ id: lgid(), userId: newUser.id, action: 'Register', details: name +
-                    ' created account', timestamp: new Date().toISOString() });
-            if (referredBy) { LD.notifications.unshift({ id: lgid(), userId: referredBy, message: '🎉 New marketer joined via your referral: ' +
-                        name, type: 'referral', read: false, timestamp: new Date().toISOString() }); }
+            LD.auditLog.unshift({ id: lgid(), userId: newUser.id, action: 'Register', details: name + ' created account', timestamp: new Date().toISOString() });
+            if (referredBy) { LD.notifications.unshift({ id: lgid(), userId: referredBy, message: '🎉 New marketer joined via your referral: ' + name, type: 'referral', read: false, timestamp: new Date().toISOString() }); }
             lsave();
             currentUser = newUser;
+            saveSession(currentUser.id);
             document.getElementById('sidebar').style.display = 'flex';
             renderApp();
             showToast('✅ ' + t('accountCreated') + ' ' + t('welcome') + ', ' + name + '!', 'success');
         }
 
         function handleLogout() {
-            if (currentUser) { LD.auditLog.unshift({ id: lgid(), userId: currentUser.id, action: 'Logout',
-                    details: currentUser.name + ' logged out', timestamp: new Date().toISOString() });
-                lsave(); }
+            if (currentUser) { LD.auditLog.unshift({ id: lgid(), userId: currentUser.id, action: 'Logout', details: currentUser.name + ' logged out', timestamp: new Date().toISOString() }); lsave(); }
             currentUser = null;
+            clearSession();
             closeSidebar();
             showLogin();
         }
@@ -2016,37 +1677,27 @@
             const isAdmin = currentUser.role === 'admin';
             let h = '';
             h += `<div class="nav-section"><div class="nav-section-title">${t('main')}</div>`;
-            h +=
-                `<a class="nav-link ${currentView === 'dashboard' ? 'active' : ''}" onclick="navigateTo('dashboard')"><i class="fas fa-th-large"></i> ${t('dashboard')}</a>`;
-            if (isAdmin) h +=
-                `<a class="nav-link ${currentView === 'analytics' ? 'active' : ''}" onclick="navigateTo('analytics')"><i class="fas fa-chart-line"></i> ${t('analytics')}</a>`;
+            h += `<a class="nav-link ${currentView === 'dashboard' ? 'active' : ''}" onclick="navigateTo('dashboard')"><i class="fas fa-th-large"></i> ${t('dashboard')}</a>`;
+            if (isAdmin) h += `<a class="nav-link ${currentView === 'analytics' ? 'active' : ''}" onclick="navigateTo('analytics')"><i class="fas fa-chart-line"></i> ${t('analytics')}</a>`;
             h += '</div>';
             h += `<div class="nav-section"><div class="nav-section-title">${t('management')}</div>`;
-            h +=
-                `<a class="nav-link ${currentView === 'products' ? 'active' : ''}" onclick="navigateTo('products')"><i class="fas fa-box-open"></i> ${t('products')}</a>`;
-            if (isAdmin) h +=
-                `<a class="nav-link ${currentView === 'offers' ? 'active' : ''}" onclick="navigateTo('offers')"><i class="fas fa-tags"></i> ${t('offers')}</a>`;
-            if (isAdmin) h +=
-                `<a class="nav-link ${currentView === 'marketers' ? 'active' : ''}" onclick="navigateTo('marketers')"><i class="fas fa-users"></i> ${t('marketers')}</a>`;
-            h +=
-                `<a class="nav-link ${currentView === (isAdmin ? 'orders' : 'myOrders') ? 'active' : ''}" onclick="navigateTo('${isAdmin ? 'orders' : 'myOrders'}')"><i class="fas fa-shopping-cart"></i> ${isAdmin ? t('orders') : t('myOrders')}</a>`;
-            h +=
-                `<a class="nav-link ${currentView === (isAdmin ? 'withdrawals' : 'myWithdrawals') ? 'active' : ''}" onclick="navigateTo('${isAdmin ? 'withdrawals' : 'myWithdrawals'}')"><i class="fas fa-wallet"></i> ${isAdmin ? t('withdrawals') : t('myWithdrawals')}</a>`;
+            if (isAdmin) h += `<a class="nav-link ${currentView === 'categories' ? 'active' : ''}" onclick="navigateTo('categories')"><i class="fas fa-layer-group"></i> ${t('categories')}</a>`;
+            h += `<a class="nav-link ${currentView === 'products' ? 'active' : ''}" onclick="navigateTo('products')"><i class="fas fa-box-open"></i> ${t('products')}</a>`;
+            if (isAdmin) h += `<a class="nav-link ${currentView === 'offers' ? 'active' : ''}" onclick="navigateTo('offers')"><i class="fas fa-tags"></i> ${t('offers')}</a>`;
+            if (isAdmin) h += `<a class="nav-link ${currentView === 'marketers' ? 'active' : ''}" onclick="navigateTo('marketers')"><i class="fas fa-users"></i> ${t('marketers')}</a>`;
+            h += `<a class="nav-link ${currentView === (isAdmin ? 'orders' : 'myOrders') ? 'active' : ''}" onclick="navigateTo('${isAdmin ? 'orders' : 'myOrders'}')"><i class="fas fa-shopping-cart"></i> ${isAdmin ? t('orders') : t('myOrders')}</a>`;
+            h += `<a class="nav-link ${currentView === (isAdmin ? 'withdrawals' : 'myWithdrawals') ? 'active' : ''}" onclick="navigateTo('${isAdmin ? 'withdrawals' : 'myWithdrawals'}')"><i class="fas fa-wallet"></i> ${isAdmin ? t('withdrawals') : t('myWithdrawals')}</a>`;
             h += '</div>';
             if (!isAdmin) {
                 h += `<div class="nav-section"><div class="nav-section-title">${t('marketing')}</div>`;
-                h +=
-                    `<a class="nav-link ${currentView === 'storefront' ? 'active' : ''}" onclick="navigateTo('storefront')"><i class="fas fa-store"></i> ${t('storefront')}</a>`;
-                h +=
-                    `<a class="nav-link ${currentView === 'myReferrals' ? 'active' : ''}" onclick="navigateTo('myReferrals')"><i class="fas fa-link"></i> ${t('myReferrals')}</a>`;
+                h += `<a class="nav-link ${currentView === 'storefront' ? 'active' : ''}" onclick="navigateTo('storefront')"><i class="fas fa-store"></i> ${t('storefront')}</a>`;
+                h += `<a class="nav-link ${currentView === 'myReferrals' ? 'active' : ''}" onclick="navigateTo('myReferrals')"><i class="fas fa-link"></i> ${t('myReferrals')}</a>`;
                 h += '</div>';
             }
             if (isAdmin) {
                 h += `<div class="nav-section"><div class="nav-section-title">${t('system')}</div>`;
-                h +=
-                    `<a class="nav-link ${currentView === 'auditLog' ? 'active' : ''}" onclick="navigateTo('auditLog')"><i class="fas fa-history"></i> ${t('auditLog')}</a>`;
-                h +=
-                    `<a class="nav-link ${currentView === 'settings' ? 'active' : ''}" onclick="navigateTo('settings')"><i class="fas fa-cog"></i> ${t('settings')}</a>`;
+                h += `<a class="nav-link ${currentView === 'auditLog' ? 'active' : ''}" onclick="navigateTo('auditLog')"><i class="fas fa-history"></i> ${t('auditLog')}</a>`;
+                h += `<a class="nav-link ${currentView === 'settings' ? 'active' : ''}" onclick="navigateTo('settings')"><i class="fas fa-cog"></i> ${t('settings')}</a>`;
                 h += '</div>';
             }
             nav.innerHTML = h;
@@ -2055,16 +1706,10 @@
         function updateSidebarUserInfo() {
             if (!currentUser) return;
             document.getElementById('sidebarUserName').textContent = currentUser.name;
-            document.getElementById('sidebarUserRole').textContent = currentUser.role === 'admin' ? '👑 ' + t('admin') :
-                '📢 ' + t('marketer');
+            document.getElementById('sidebarUserRole').textContent = currentUser.role === 'admin' ? '👑 ' + t('admin') : '📢 ' + t('marketer');
             document.getElementById('sidebarAvatar').textContent = currentUser.name.charAt(0).toUpperCase();
             const bannedBadge = document.getElementById('bannedBadge');
-            if (currentUser.banned) {
-                bannedBadge.classList.remove('hidden');
-                bannedBadge.textContent = '🚫 ' + (currentUser.banReason || t('banned'));
-            } else {
-                bannedBadge.classList.add('hidden');
-            }
+            if (currentUser.banned) { bannedBadge.classList.remove('hidden'); bannedBadge.textContent = '🚫 ' + (currentUser.banReason || t('banned')); } else { bannedBadge.classList.add('hidden'); }
         }
 
         function navigateTo(view) {
@@ -2074,25 +1719,55 @@
             closeSidebar();
             const c = document.getElementById('contentArea');
             processFrozenCommissions();
-            const r = { dashboard: renderDashboard, products: renderProducts, offers: renderOffers,
-                marketers: renderMarketers, orders: renderOrders, withdrawals: renderWithdrawals,
-                analytics: renderAnalytics, auditLog: renderAuditLog, settings: renderSettings,
-                storefront: renderStorefront, myOrders: renderMyOrders, myReferrals: renderMyReferrals,
-                myWithdrawals: renderMyWithdrawals };
+            const r = { dashboard: renderDashboard, products: renderProducts, offers: renderOffers, marketers: renderMarketers, orders: renderOrders, withdrawals: renderWithdrawals, analytics: renderAnalytics, auditLog: renderAuditLog, settings: renderSettings, storefront: renderStorefront, myOrders: renderMyOrders, myReferrals: renderMyReferrals, myWithdrawals: renderMyWithdrawals, categories: renderCategories };
             (r[view] || renderDashboard)(c);
+        }
+
+        // ==================== CATEGORIES ====================
+        function renderCategories(container) {
+            container.innerHTML = `
+            <div class="card animate-in"><div class="card-header"><h3>🗂️ ${t('categories')}</h3><button class="btn btn-accent btn-sm" onclick="openCategoryModal()"><i class="fas fa-plus"></i> ${t('addCategory')}</button></div>
+            <div class="card-body"><div class="table-wrap"><table><tr><th>${t('name')}</th><th>${t('products')}</th><th>${t('actions')}</th></tr>
+            ${LD.categories.map(cat => `<tr><td>${cat.name}</td><td>${LD.products.filter(p => p.categoryId === cat.id).length}</td><td><button class="btn btn-xs" onclick="openCategoryModal('${cat.id}')">✏️</button> <button class="btn btn-xs btn-danger" onclick="deleteCategory('${cat.id}')">🗑️</button></td></tr>`).join('')}
+            ${LD.categories.length === 0 ? `<tr><td colspan="3"><div class="empty-state">${t('noCategories')}</div></td></tr>` : ''}</table></div></div></div>`;
+        }
+
+        function openCategoryModal(cid = null) {
+            const cat = cid ? LD.categories.find(c => c.id === cid) : null;
+            document.getElementById('modalContainer').innerHTML = `
+            <div class="modal-overlay" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modal-header"><h3>${cat ? t('editCategory') : t('addCategory')}</h3><button class="btn-icon" onclick="closeModal()"><i class="fas fa-times"></i></button></div>
+            <div class="modal-body"><div class="form-group"><label class="form-label">${t('name')}</label><input class="form-input" id="catName" value="${cat?.name || ''}"></div></div>
+            <div class="modal-footer"><button class="btn" onclick="closeModal()">${t('cancel')}</button><button class="btn btn-accent" onclick="saveCategory('${cid || ''}')">${t('save')}</button></div></div></div>`;
+        }
+
+        function saveCategory(cid) {
+            const name = document.getElementById('catName').value.trim();
+            if (!name) return showToast(t('fillAll'), 'error');
+            if (cid) {
+                const cat = LD.categories.find(c => c.id === cid);
+                if (cat) cat.name = name;
+            } else {
+                LD.categories.push({ id: lgid(), name });
+            }
+            lsave();
+            closeModal();
+            navigateTo('categories');
+            showToast('✅ ' + t('savedSuccess'), 'success');
+        }
+
+        function deleteCategory(cid) {
+            if (confirm(t('delete') + '?')) {
+                LD.categories = LD.categories.filter(c => c.id !== cid);
+                LD.products.forEach(p => { if (p.categoryId === cid) p.categoryId = null; });
+                lsave();
+                navigateTo('categories');
+            }
         }
 
         // ==================== DASHBOARD ====================
         function renderDashboard(container) {
             if (currentUser.role === 'admin') {
-                const tp = LD.products.length,
-                    tm = LD.users.filter(u => u.role === 'marketer').length,
-                    to = LD.orders.length,
-                    ts = LD.orders.reduce((s, o) => s + (o.totalAmount || 0), 0),
-                    expectedCom = LD.orders.filter(o => o.commissionStatus === 'expected').reduce((s, o) => s + o
-                        .commissionAmount, 0),
-                    frozenCom = LD.orders.filter(o => o.commissionStatus === 'frozen').reduce((s, o) => s + o
-                        .commissionAmount, 0);
+                const tp = LD.products.length, tm = LD.users.filter(u => u.role === 'marketer').length, to = LD.orders.length, ts = LD.orders.reduce((s, o) => s + (o.totalAmount || 0), 0), expectedCom = LD.orders.filter(o => o.commissionStatus === 'expected').reduce((s, o) => s + o.commissionAmount, 0), frozenCom = LD.orders.filter(o => o.commissionStatus === 'frozen').reduce((s, o) => s + o.commissionAmount, 0);
                 container.innerHTML = `
             <div class="stats-grid">
               <div class="stat-card animate-in animate-in-delay-1"><div class="stat-icon-wrap blue"><i class="fas fa-box"></i></div><div class="stat-info"><div class="stat-value">${tp}</div><div class="stat-label">${t('products')}</div></div></div>
@@ -2113,13 +1788,7 @@
                 }
             } else {
                 processFrozenCommissions();
-                const mo = LD.orders.filter(o => o.marketerId === currentUser.id),
-                    rel = mo.filter(o => o.commissionStatus === 'released').reduce((s, o) => s + o.commissionAmount, 0),
-                    rc = LD.users.filter(u => u.referredBy === currentUser.id).length,
-                    expectedCom = mo.filter(o => o.commissionStatus === 'expected').reduce((s, o) => s + o
-                        .commissionAmount, 0),
-                    frozenCom = mo.filter(o => o.commissionStatus === 'frozen').reduce((s, o) => s + o.commissionAmount,
-                        0);
+                const mo = LD.orders.filter(o => o.marketerId === currentUser.id), rel = mo.filter(o => o.commissionStatus === 'released').reduce((s, o) => s + o.commissionAmount, 0), rc = LD.users.filter(u => u.referredBy === currentUser.id).length, expectedCom = mo.filter(o => o.commissionStatus === 'expected').reduce((s, o) => s + o.commissionAmount, 0), frozenCom = mo.filter(o => o.commissionStatus === 'frozen').reduce((s, o) => s + o.commissionAmount, 0);
                 container.innerHTML = `
             <div class="stats-grid">
               <div class="stat-card animate-in animate-in-delay-1"><div class="stat-icon-wrap green"><i class="fas fa-wallet"></i></div><div class="stat-info"><div class="stat-value">${currentUser.balance.toLocaleString()} ₺</div><div class="stat-label">${t('balance')}</div></div></div>
@@ -2170,21 +1839,27 @@
 
         // ==================== PRODUCTS ====================
         function renderProducts(container) {
-            const prods = LD.products;
+            const filterCat = container.querySelector('#catFilter')?.value || 'all';
+            let prods = LD.products;
+            if (filterCat !== 'all') prods = prods.filter(p => p.categoryId === filterCat);
+
+            const catOptions = LD.categories.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
             container.innerHTML = `
-            <div class="card animate-in"><div class="card-header"><h3>📦 ${t('products')}</h3>${currentUser.role === 'admin' ? `<button class="btn btn-accent btn-sm" onclick="openProductModal()"><i class="fas fa-plus"></i> ${t('add')}</button>` : ''}</div><div class="card-body"><div class="grid-3" id="pgrid"></div></div></div>`;
+            <div class="card animate-in"><div class="card-header"><h3>📦 ${t('products')}</h3>
+            <div style="display:flex;gap:8px;align-items:center;">
+              ${LD.categories.length > 0 ? `<select class="form-select" id="catFilter" onchange="renderProducts(document.getElementById('contentArea'))" style="width:auto;padding:6px 12px;"><option value="all">${t('allCategories')}</option>${catOptions}</select>` : ''}
+              ${currentUser.role === 'admin' ? `<button class="btn btn-accent btn-sm" onclick="openProductModal()"><i class="fas fa-plus"></i> ${t('add')}</button>` : ''}
+            </div></div><div class="card-body"><div class="grid-3" id="pgrid"></div></div></div>`;
             const g = document.getElementById('pgrid');
             if (g) g.innerHTML = prods.length ? prods.map((p, i) => {
-                const off = LD.offers.find(o => o.productId === p.id && o.active),
-                    pr = off ? Math.round(p.basePrice * (1 - off.discountPercent / 100)) : p.basePrice,
-                    st = p.colors.reduce((s, c) => s + c.stock, 0),
-                    im = p.colors[0]?.images[0] || 'https://picsum.photos/seed/d/400/400';
-                return `<div class="card animate-in" style="animation-delay:${i*0.04}s;overflow:hidden;"><img src="${im}" class="img-preview" style="height:180px;" onerror="this.src='https://picsum.photos/seed/fb/400/400'"><div class="card-body"><h4>${p.name}</h4><p style="font-size:0.72rem;color:var(--text-tertiary);">${p.description?.substring(0,45)||''}</p><div style="margin:6px 0;">${off?`<span style="text-decoration:line-through;color:var(--text-tertiary);font-size:0.78rem;">${p.basePrice} ₺</span> <span style="font-weight:900;color:var(--danger-text);font-size:1.05rem;">${pr} ₺</span> <span class="tag">-${off.discountPercent}%</span>`:`<span style="font-weight:900;font-size:1.05rem;">${p.basePrice} ₺</span>`}</div><div style="font-size:0.7rem;color:var(--text-tertiary);">📦 ${t('stock')}: ${st} | 🎨 ${t('colors')}: ${p.colors.length}</div></div><div class="card-footer" style="display:flex;gap:6px;">${currentUser.role==='admin'?`<button class="btn btn-sm" onclick="openProductModal('${p.id}')"><i class="fas fa-edit"></i> ${t('edit')}</button><button class="btn btn-sm btn-danger" onclick="deleteProduct('${p.id}')"><i class="fas fa-trash"></i> ${t('delete')}</button>`:`<button class="btn btn-accent btn-sm" style="width:100%;" onclick="addToCart('${p.id}')"><i class="fas fa-cart-plus"></i> ${t('orderNow')}</button>`}</div></div>`;
+                const off = LD.offers.find(o => o.productId === p.id && o.active), pr = off ? Math.round(p.basePrice * (1 - off.discountPercent / 100)) : p.basePrice, st = p.colors.reduce((s, c) => s + c.stock, 0), im = p.colors[0]?.images[0] || 'https://picsum.photos/seed/d/400/400', catName = p.categoryId ? LD.categories.find(c => c.id === p.categoryId)?.name || '' : '';
+                return `<div class="card animate-in" style="animation-delay:${i*0.04}s;overflow:hidden;"><img src="${im}" class="img-preview" style="height:180px;" onerror="this.src='https://picsum.photos/seed/fb/400/400'"><div class="card-body"><h4>${p.name}</h4>${catName ? `<span class="tag">${catName}</span>` : ''}<p style="font-size:0.72rem;color:var(--text-tertiary);">${p.description?.substring(0,45)||''}</p><div style="margin:6px 0;">${off?`<span style="text-decoration:line-through;color:var(--text-tertiary);font-size:0.78rem;">${p.basePrice} ₺</span> <span style="font-weight:900;color:var(--danger-text);font-size:1.05rem;">${pr} ₺</span> <span class="tag">-${off.discountPercent}%</span>`:`<span style="font-weight:900;font-size:1.05rem;">${p.basePrice} ₺</span>`}</div><div style="font-size:0.7rem;color:var(--text-tertiary);">📦 ${t('stock')}: ${st} | 🎨 ${t('colors')}: ${p.colors.length}</div></div><div class="card-footer" style="display:flex;gap:6px;">${currentUser.role==='admin'?`<button class="btn btn-sm" onclick="openProductModal('${p.id}')"><i class="fas fa-edit"></i> ${t('edit')}</button><button class="btn btn-sm btn-danger" onclick="deleteProduct('${p.id}')"><i class="fas fa-trash"></i> ${t('delete')}</button>`:`<button class="btn btn-accent btn-sm" style="width:100%;" onclick="addToCart('${p.id}')"><i class="fas fa-cart-plus"></i> ${t('orderNow')}</button>`}</div></div>`;
             }).join('') : '<div class="empty-state" style="grid-column:1/-1;"><i class="fas fa-box-open"></i><p>' + t('noProducts') + '</p></div>';
         }
 
         function openProductModal(pid = null) {
             const p = pid ? findProduct(pid) : null;
+            const catSelect = `<select class="form-select" id="pcat"><option value="">${t('selectCategory')}</option>${LD.categories.map(c => `<option value="${c.id}" ${p?.categoryId === c.id ? 'selected' : ''}>${c.name}</option>`).join('')}</select>`;
             const colorsHtml = p ? p.colors.map((c, idx) => `
                 <div class="color-entry">
                     <input class="form-input" placeholder="${t('colorName')}" value="${c.colorName}">
@@ -2200,6 +1875,7 @@
             document.getElementById('modalContainer').innerHTML = `
             <div class="modal-overlay" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modal-header"><h3>${p?t('editProduct'):t('addProduct')}</h3><button class="btn-icon" onclick="closeModal()"><i class="fas fa-times"></i></button></div>
             <div class="modal-body">
+                <div class="form-group"><label class="form-label">${t('category')}</label>${catSelect}</div>
                 <div class="form-group"><label class="form-label">${t('name')}</label><input class="form-input" id="pn" value="${p?.name||''}"></div>
                 <div class="form-group"><label class="form-label">${t('description')}</label><textarea id="pd">${p?.description||''}</textarea></div>
                 <div class="form-group"><label class="form-label">${t('price')} (₺)</label><input class="form-input" type="number" id="pp" value="${p?.basePrice||0}"></div>
@@ -2228,6 +1904,7 @@
             const n = document.getElementById('pn').value.trim();
             const d = document.getElementById('pd').value.trim();
             const pr = parseFloat(document.getElementById('pp').value) || 0;
+            const catId = document.getElementById('pcat')?.value || null;
             const colorEntries = document.querySelectorAll('#colorsContainer .color-entry');
             const colors = [];
             colorEntries.forEach(entry => {
@@ -2240,10 +1917,9 @@
             if (!n || colors.length === 0) return showToast(t('fillAll'), 'error');
             if (pid) {
                 const p = findProduct(pid);
-                if (p) Object.assign(p, { name: n, description: d, basePrice: pr, colors });
+                if (p) Object.assign(p, { name: n, description: d, basePrice: pr, colors, categoryId: catId });
             } else {
-                LD.products.push({ id: lgid(), name: n, description: d, basePrice: pr, colors, active: true,
-                    createdAt: new Date().toISOString() });
+                LD.products.push({ id: lgid(), name: n, description: d, basePrice: pr, colors, active: true, createdAt: new Date().toISOString(), categoryId: catId });
             }
             lsave();
             closeModal();
@@ -2251,15 +1927,12 @@
             showToast('✅ ' + t('savedSuccess'), 'success');
         }
 
-        function deleteProduct(pid) { if (confirm(t('delete') + '?')) { LD.products = LD.products.filter(x => x.id !== pid);
-                lsave();
-                navigateTo('products'); } }
+        function deleteProduct(pid) { if (confirm(t('delete') + '?')) { LD.products = LD.products.filter(x => x.id !== pid); lsave(); navigateTo('products'); } }
 
         function addToCart(pid) {
             const p = findProduct(pid);
             if (!p || !p.active) return showToast(t('unavailable'), 'error');
-            const off = LD.offers.find(o => o.productId === pid && o.active),
-                basePrice = off ? Math.round(p.basePrice * (1 - off.discountPercent / 100)) : p.basePrice;
+            const off = LD.offers.find(o => o.productId === pid && o.active), basePrice = off ? Math.round(p.basePrice * (1 - off.discountPercent / 100)) : p.basePrice;
             document.getElementById('modalContainer').innerHTML = `
             <div class="modal-overlay" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modal-header"><h3>🛒 ${t('placeOrder')}</h3><button class="btn-icon" onclick="closeModal()"><i class="fas fa-times"></i></button></div>
             <div class="modal-body">
@@ -2304,43 +1977,19 @@
             const el = document.getElementById('oimgs');
             if (!el || !p || !col) return;
             const c = p.colors.find(x => x.colorName === col);
-            if (c) el.innerHTML = c.images.map(i =>
-                `<img src="${i}" class="img-thumb" style="width:65px;height:65px;" onerror="this.src='https://picsum.photos/seed/err/65/65'">`
-                ).join('');
+            if (c) el.innerHTML = c.images.map(i => `<img src="${i}" class="img-thumb" style="width:65px;height:65px;" onerror="this.src='https://picsum.photos/seed/err/65/65'">`).join('');
         }
 
         function submitOrder(pid, basePrice) {
-            const col = document.getElementById('oc')?.value?.split(' (')[0],
-                qty = parseInt(document.getElementById('oq').value) || 1,
-                cn = document.getElementById('cn').value.trim(),
-                cp1 = document.getElementById('cp1').value.trim(),
-                cp2 = document.getElementById('cp2').value.trim(),
-                cw = document.getElementById('cw').value.trim(),
-                sellerPrice = parseFloat(document.getElementById('sp').value) || basePrice;
+            const col = document.getElementById('oc')?.value?.split(' (')[0], qty = parseInt(document.getElementById('oq').value) || 1, cn = document.getElementById('cn').value.trim(), cp1 = document.getElementById('cp1').value.trim(), cp2 = document.getElementById('cp2').value.trim(), cw = document.getElementById('cw').value.trim(), sellerPrice = parseFloat(document.getElementById('sp').value) || basePrice;
             if (!cn || !cp1) return showToast(t('customerInfoRequired'), 'error');
             const totalAmount = sellerPrice * qty;
             const commissionAmount = Math.max(0, (sellerPrice - basePrice) * qty);
-            const ord = {
-                id: lgid(),
-                marketerId: currentUser.id,
-                customer: { name: cn, phone1: cp1, phone2: cp2, whatsapp: cw },
-                items: [{ productId: pid, color: col, quantity: qty, price: basePrice }],
-                sellerPrice: sellerPrice,
-                status: t('pending'),
-                commissionAmount: commissionAmount,
-                commissionStatus: 'pending',
-                totalAmount: totalAmount,
-                frozenAt: null,
-                createdAt: new Date().toISOString(),
-                notes: ''
-            };
+            const ord = { id: lgid(), marketerId: currentUser.id, customer: { name: cn, phone1: cp1, phone2: cp2, whatsapp: cw }, items: [{ productId: pid, color: col, quantity: qty, price: basePrice }], sellerPrice: sellerPrice, status: t('pending'), commissionAmount: commissionAmount, commissionStatus: 'pending', totalAmount: totalAmount, frozenAt: null, createdAt: new Date().toISOString(), notes: '' };
             LD.orders.push(ord);
             const p = findProduct(pid);
-            if (p) { const c = p.colors.find(x => x.colorName === col); if (c) c.stock = Math.max(0, c.stock - qty); if (p
-                    .colors.reduce((s, x) => s + x.stock, 0) <= 0) p.active = false; }
-            LD.notifications.unshift({ id: lgid(), userId: currentUser.id, message: '📦 Order #' + ord.id.replace('id_',
-                    '') + ' placed - Commission: ' + commissionAmount + ' ₺', type: 'order', read: false,
-                timestamp: new Date().toISOString() });
+            if (p) { const c = p.colors.find(x => x.colorName === col); if (c) c.stock = Math.max(0, c.stock - qty); if (p.colors.reduce((s, x) => s + x.stock, 0) <= 0) p.active = false; }
+            LD.notifications.unshift({ id: lgid(), userId: currentUser.id, message: '📦 Order #' + ord.id.replace('id_', '') + ' placed - Commission: ' + commissionAmount + ' ₺', type: 'order', read: false, timestamp: new Date().toISOString() });
             lsave();
             closeModal();
             navigateTo('myOrders');
@@ -2353,15 +2002,10 @@
             const ref = findUser(currentUser.referredBy);
             if (!ref) return;
             const ms = LD.orders.filter(o => o.marketerId === currentUser.id && o.commissionStatus === 'released').length;
-            if (ms >= LD.settings.referralThreshold && !LD.transactions.some(t => t.userId === ref.id && t.type ===
-                    'referral_bonus' && t.description.includes(currentUser.id))) {
+            if (ms >= LD.settings.referralThreshold && !LD.transactions.some(t => t.userId === ref.id && t.type === 'referral_bonus' && t.description.includes(currentUser.id))) {
                 ref.balance += LD.settings.referralBonus;
-                LD.transactions.unshift({ id: lgid(), userId: ref.id, type: 'referral_bonus',
-                    amount: LD.settings.referralBonus, description: 'Referral bonus from ' + currentUser.name,
-                    timestamp: new Date().toISOString() });
-                LD.notifications.unshift({ id: lgid(), userId: ref.id, message: '🎉 Referral bonus ' + LD.settings
-                        .referralBonus + ' ₺ from ' + currentUser.name, type: 'bonus', read: false,
-                    timestamp: new Date().toISOString() });
+                LD.transactions.unshift({ id: lgid(), userId: ref.id, type: 'referral_bonus', amount: LD.settings.referralBonus, description: 'Referral bonus from ' + currentUser.name, timestamp: new Date().toISOString() });
+                LD.notifications.unshift({ id: lgid(), userId: ref.id, message: '🎉 Referral bonus ' + LD.settings.referralBonus + ' ₺ from ' + currentUser.name, type: 'bonus', read: false, timestamp: new Date().toISOString() });
                 lsave();
             }
         }
@@ -2375,29 +2019,9 @@
             container.innerHTML = `
             <div class="card animate-in"><div class="card-header"><h3>📋 ${t('orders')}</h3><div style="display:flex;gap:8px;align-items:center;"><input class="form-input" id="orderSearch" placeholder="${t('searchOrderId')}" style="max-width:200px;" oninput="renderOrders(document.getElementById('contentArea'))"><button class="btn btn-sm" onclick="renderOrders(document.getElementById('contentArea'))">🔍</button></div></div><div class="card-body"><div class="table-wrap"><table><tr><th>${t('orderId')}</th><th>${t('name')}</th><th>📱</th><th>${t('marketer')}</th><th>${t('amount')}</th><th>${t('marketerProfit')}</th><th>${t('status')}</th><th>${t('actions')}</th><th></th></tr>
             ${ords.map(o => {
-                const marketer = findUser(o.marketerId);
-                const profit = o.commissionAmount || 0;
-                const shippedLabel = t('shipped');
-                const receivedLabel = t('received');
-                const rejectedLabel = t('rejected');
-                const returnedLabel = t('returned');
-                const cancelledLabel = t('cancelled');
-                return `<tr>
-                    <td>${o.id.replace('id_','')}</td>
-                    <td><strong>${o.customer.name}</strong></td>
-                    <td><small>${o.customer.phone1}<br>${o.customer.whatsapp||'—'}</small></td>
-                    <td>${marketer?.name||'—'}<br><small style="color:var(--text-tertiary);">${marketer?.pageName||''}</small></td>
-                    <td>${o.totalAmount} ₺</td>
-                    <td>${profit} ₺</td>
-                    <td><span class="status-pill ${getStatusClass(o.status)}">${o.status}</span><br><small style="font-size:0.65rem;">${o.commissionStatus}</small></td>
-                    <td><select class="form-select" style="width:auto;padding:5px 8px;font-size:0.7rem;" onchange="updateOS('${o.id}',this.value)"><option value="">—</option>
-                    <option value="${shippedLabel}">🚚 ${t('ship')}</option>
-                    <option value="${receivedLabel}">✅ ${t('receive')}</option>
-                    <option value="${rejectedLabel}">❌ ${t('rejectOrder')}</option>
-                    <option value="${returnedLabel}">↩️ ${t('returnOrder')}</option>
-                    <option value="${cancelledLabel}">🗑️ ${t('cancelOrder')}</option></select></td>
-                    <td><button class="btn btn-xs" onclick="viewOrderDetails('${o.id}')">👁️</button></td>
-                </tr>`;
+                const marketer = findUser(o.marketerId); const profit = o.commissionAmount || 0;
+                return `<tr><td>${o.id.replace('id_','')}</td><td><strong>${o.customer.name}</strong></td><td><small>${o.customer.phone1}<br>${o.customer.whatsapp||'—'}</small></td><td>${marketer?.name||'—'}<br><small style="color:var(--text-tertiary);">${marketer?.pageName||''}</small></td><td>${o.totalAmount} ₺</td><td>${profit} ₺</td><td><span class="status-pill ${getStatusClass(o.status)}">${o.status}</span><br><small style="font-size:0.65rem;">${o.commissionStatus}</small></td><td><select class="form-select" style="width:auto;padding:5px 8px;font-size:0.7rem;" onchange="updateOS('${o.id}',this.value)"><option value="">—</option>
+                    <option value="${t('shipped')}">🚚 ${t('ship')}</option><option value="${t('received')}">✅ ${t('receive')}</option><option value="${t('rejected')}">❌ ${t('rejectOrder')}</option><option value="${t('returned')}">↩️ ${t('returnOrder')}</option><option value="${t('cancelled')}">🗑️ ${t('cancelOrder')}</option></select></td><td><button class="btn btn-xs" onclick="viewOrderDetails('${o.id}')">👁️</button></td></tr>`;
             }).join('')}
             ${ords.length===0?`<tr><td colspan="9"><div class="empty-state">${t('noOrders')}</div></td></tr>`:''}</table></div></div></div>`;
         }
@@ -2407,41 +2031,25 @@
             const o = LD.orders.find(x => x.id === oid);
             if (!o) return;
             const m = findUser(o.marketerId);
-            const shippedAr = 'تم الشحن',
-                shippedEn = 'Shipped';
-            const receivedAr = 'تم الاستلام',
-                receivedEn = 'Received';
-            const rejectedAr = 'رفض دفع',
-                rejectedEn = 'Rejected';
-            const returnedAr = 'مرتجع',
-                returnedEn = 'Returned';
-            const cancelledAr = 'إلغاء',
-                cancelledEn = 'Cancelled';
-            if (st === shippedAr || st === shippedEn) {
+            if (st === t('shipped')) {
                 o.status = st;
                 if (o.commissionStatus === 'pending') o.commissionStatus = 'expected';
-            } else if (st === receivedAr || st === receivedEn) {
+            } else if (st === t('received')) {
                 o.status = st;
                 if (o.commissionStatus === 'expected' && o.commissionAmount > 0) {
                     o.commissionStatus = 'frozen';
                     o.frozenAt = new Date().toISOString();
-                    LD.notifications.unshift({ id: lgid(), userId: m.id, message: '⏳ عمولة الطلب #' + oid.replace(
-                            'id_', '') + ' (' + o.commissionAmount + ' ₺) تم تجميدها لمدة يومين',
-                        type: 'commission', read: false, timestamp: new Date().toISOString() });
+                    LD.notifications.unshift({ id: lgid(), userId: m.id, message: '⏳ عمولة الطلب #' + oid.replace('id_', '') + ' (' + o.commissionAmount + ' ₺) تم تجميدها لمدة يومين', type: 'commission', read: false, timestamp: new Date().toISOString() });
                 }
-            } else if (st === returnedAr || st === returnedEn) {
+            } else if (st === t('returned')) {
                 o.status = st;
                 if (o.commissionStatus === 'released') {
-                    if (confirm(t('deductCommissionQ'))) { m.balance = Math.max(0, m.balance - o.commissionAmount);
-                        o.commissionStatus = 'deducted'; }
+                    if (confirm(t('deductCommissionQ'))) { m.balance = Math.max(0, m.balance - o.commissionAmount); o.commissionStatus = 'deducted'; }
                 }
-            } else if (st === cancelledAr || st === cancelledEn) {
+            } else if (st === t('cancelled')) {
                 o.status = st;
-                if (o.commissionStatus === 'pending' || o.commissionStatus === 'expected') o.commissionStatus =
-                'cancelled';
-            } else {
-                o.status = st;
-            }
+                if (o.commissionStatus === 'pending' || o.commissionStatus === 'expected') o.commissionStatus = 'cancelled';
+            } else { o.status = st; }
             lsave();
             navigateTo('orders');
             showToast('✅ ' + t('updatedMsg'), 'success');
@@ -2465,33 +2073,13 @@
             container.innerHTML = `
             <div class="card animate-in"><div class="card-header"><h3>👥 ${t('marketers')}</h3><button class="btn btn-accent btn-sm" onclick="openMarketerModal()"><i class="fas fa-plus"></i> ${t('add')}</button></div>
             <div class="card-body"><div class="table-wrap"><table><tr><th>${t('name')}</th><th>🏪</th><th>${t('phone')}</th><th>${t('balance')}</th><th>${t('sales')}</th><th>%</th><th>${t('actions')}</th></tr>
-            ${ms.map(m => `<tr>
-                <td>${m.name} ${m.banned?'<span class="status-pill rejected">🚫 '+(m.banReason||t('banned'))+'</span>':''}</td>
-                <td><small>${m.pageName||'—'}</small></td>
-                <td>${m.phone}</td>
-                <td>${m.balance} ₺</td>
-                <td>${LD.orders.filter(o=>o.marketerId===m.id).length}</td>
-                <td>${m.commissionRate}%</td>
-                <td style="display:flex;gap:4px;">
-                    <button class="btn btn-xs btn-accent" onclick="openBonusModal('${m.id}')">💵</button>
-                    <button class="btn btn-xs" onclick="openMarketerModal('${m.id}')">✏️</button>
-                    <button class="btn btn-xs btn-danger" onclick="banMarketer('${m.id}')">${m.banned?t('unban'):t('ban')}</button>
-                </td></tr>`).join('')}</table></div></div></div>`;
+            ${ms.map(m => `<tr><td>${m.name} ${m.banned?'<span class="status-pill rejected">🚫 '+(m.banReason||t('banned'))+'</span>':''}</td><td><small>${m.pageName||'—'}</small></td><td>${m.phone}</td><td>${m.balance} ₺</td><td>${LD.orders.filter(o=>o.marketerId===m.id).length}</td><td>${m.commissionRate}%</td><td style="display:flex;gap:4px;"><button class="btn btn-xs btn-accent" onclick="openBonusModal('${m.id}')">💵</button><button class="btn btn-xs" onclick="openMarketerModal('${m.id}')">✏️</button><button class="btn btn-xs btn-danger" onclick="banMarketer('${m.id}')">${m.banned?t('unban'):t('ban')}</button></td></tr>`).join('')}</table></div></div></div>`;
         }
 
         function banMarketer(mid) {
-            const m = findUser(mid);
-            if (!m || m.role !== 'marketer') return;
-            if (m.banned) { m.banned = false;
-                m.banReason = '';
-                lsave();
-                navigateTo('marketers');
-                showToast('✅ ' + t('unban') + ' ' + m.name, 'success'); } else { const reason = prompt(t('banReason') +
-                    ':'); if (reason !== null) { m.banned = true;
-                    m.banReason = reason.trim();
-                    lsave();
-                    navigateTo('marketers');
-                    showToast('🚫 ' + t('ban') + ' ' + m.name, 'info'); } }
+            const m = findUser(mid); if (!m || m.role !== 'marketer') return;
+            if (m.banned) { m.banned = false; m.banReason = ''; lsave(); navigateTo('marketers'); showToast('✅ ' + t('unban') + ' ' + m.name, 'success'); }
+            else { const reason = prompt(t('banReason') + ':'); if (reason !== null) { m.banned = true; m.banReason = reason.trim(); lsave(); navigateTo('marketers'); showToast('🚫 ' + t('ban') + ' ' + m.name, 'info'); } }
         }
 
         function openMarketerModal(mid = null) {
@@ -2508,28 +2096,15 @@
         }
 
         function saveMarketer(mid) {
-            const n = document.getElementById('mn').value.trim(),
-                pn = document.getElementById('mpn').value.trim(),
-                p = document.getElementById('mp').value.trim(),
-                e = document.getElementById('me').value.trim(),
-                ps = document.getElementById('mps').value.trim(),
-                c = parseFloat(document.getElementById('mc').value) || LD.settings.defaultCommissionRate;
+            const n = document.getElementById('mn').value.trim(), pn = document.getElementById('mpn').value.trim(), p = document.getElementById('mp').value.trim(), e = document.getElementById('me').value.trim(), ps = document.getElementById('mps').value.trim(), c = parseFloat(document.getElementById('mc').value) || LD.settings.defaultCommissionRate;
             if (!n || !p || !ps) return showToast(t('requiredFields'), 'error');
-            if (mid) { const m = findUser(mid); if (m) Object.assign(m, { name: n, pageName: pn, phone: p, email: e,
-                    password: ps, commissionRate: c }); } else LD.users.push({ id: lgid(), name: n, phone: p,
-                email: e, password: ps, role: 'marketer', balance: 0, salesCount: 0, commissionRate: c,
-                referralCode: 'R' + Date.now().toString(36).toUpperCase(), referredBy: null, permissions: [],
-                pageName: pn || n, createdAt: new Date().toISOString(), active: true, banned: false,
-                banReason: '' });
-            lsave();
-            closeModal();
-            navigateTo('marketers');
-            showToast('✅ ' + t('savedSuccess'), 'success');
+            if (mid) { const m = findUser(mid); if (m) Object.assign(m, { name: n, pageName: pn, phone: p, email: e, password: ps, commissionRate: c }); }
+            else LD.users.push({ id: lgid(), name: n, phone: p, email: e, password: ps, role: 'marketer', balance: 0, salesCount: 0, commissionRate: c, referralCode: 'R' + Date.now().toString(36).toUpperCase(), referredBy: null, permissions: [], pageName: pn || n, createdAt: new Date().toISOString(), active: true, banned: false, banReason: '' });
+            lsave(); closeModal(); navigateTo('marketers'); showToast('✅ ' + t('savedSuccess'), 'success');
         }
 
         function openBonusModal(mid) {
-            const m = findUser(mid);
-            if (!m) return;
+            const m = findUser(mid); if (!m) return;
             document.getElementById('modalContainer').innerHTML = `
             <div class="modal-overlay" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modal-header"><h3>💵 ${t('adjustBalance')} - ${m.name}</h3><button class="btn-icon" onclick="closeModal()"><i class="fas fa-times"></i></button></div>
             <div class="modal-body"><p>${t('balance')}: <strong>${m.balance} ₺</strong></p>
@@ -2539,22 +2114,13 @@
         }
 
         function applyBonus(mid) {
-            const a = parseFloat(document.getElementById('ba').value) || 0,
-                r = document.getElementById('br').value.trim();
+            const a = parseFloat(document.getElementById('ba').value) || 0, r = document.getElementById('br').value.trim();
             if (a === 0) return;
-            const m = findUser(mid);
-            if (!m) return;
+            const m = findUser(mid); if (!m) return;
             m.balance = Math.max(0, m.balance + a);
-            LD.transactions.unshift({ id: lgid(), userId: m.id, type: a > 0 ? 'bonus' : 'deduction',
-                amount: Math.abs(a), description: r || (a > 0 ? 'Bonus' : 'Deduction'),
-                timestamp: new Date().toISOString() });
-            LD.notifications.unshift({ id: lgid(), userId: m.id, message: a > 0 ? '💰 Added ' + a + ' ₺' :
-                    '⚠️ Deducted ' + Math.abs(a) + ' ₺', type: 'bonus', read: false,
-                timestamp: new Date().toISOString() });
-            lsave();
-            closeModal();
-            navigateTo('marketers');
-            showToast('✅ ' + t('doneMsg'), 'success');
+            LD.transactions.unshift({ id: lgid(), userId: m.id, type: a > 0 ? 'bonus' : 'deduction', amount: Math.abs(a), description: r || (a > 0 ? 'Bonus' : 'Deduction'), timestamp: new Date().toISOString() });
+            LD.notifications.unshift({ id: lgid(), userId: m.id, message: a > 0 ? '💰 Added ' + a + ' ₺' : '⚠️ Deducted ' + Math.abs(a) + ' ₺', type: 'bonus', read: false, timestamp: new Date().toISOString() });
+            lsave(); closeModal(); navigateTo('marketers'); showToast('✅ ' + t('doneMsg'), 'success');
         }
 
         // ==================== WITHDRAWALS ====================
@@ -2578,41 +2144,26 @@
         }
 
         function subWD() {
-            const mt = document.getElementById('wm').value,
-                ac = document.getElementById('wa').value.trim(),
-                am = parseFloat(document.getElementById('wamt').value) || 0;
+            const mt = document.getElementById('wm').value, ac = document.getElementById('wa').value.trim(), am = parseFloat(document.getElementById('wamt').value) || 0;
             if (!ac) return showToast(t('accountRequired'), 'error');
             if (am < LD.settings.minWithdrawal) return showToast(t('belowMin'), 'error');
             if (am > currentUser.balance) return showToast(t('exceedsBalance'), 'error');
             currentUser.balance -= am;
-            LD.withdrawals.push({ id: lgid(), marketerId: currentUser.id, method: mt, accountNumber: ac, amount: am,
-                status: t('underReview'), createdAt: new Date().toISOString() });
-            lsave();
-            closeModal();
-            navigateTo('myWithdrawals');
-            showToast('✅ ' + t('submittedMsg'), 'success');
+            LD.withdrawals.push({ id: lgid(), marketerId: currentUser.id, method: mt, accountNumber: ac, amount: am, status: t('underReview'), createdAt: new Date().toISOString() });
+            lsave(); closeModal(); navigateTo('myWithdrawals'); showToast('✅ ' + t('submittedMsg'), 'success');
         }
 
         function appWD(wid) {
-            const w = LD.withdrawals.find(x => x.id === wid);
-            if (!w) return;
+            const w = LD.withdrawals.find(x => x.id === wid); if (!w) return;
             w.status = t('transferred');
-            LD.notifications.unshift({ id: lgid(), userId: w.marketerId, message: '✅ Withdrawal ' + w.amount +
-                    ' ₺ approved', type: 'withdrawal', read: false, timestamp: new Date().toISOString() });
-            lsave();
-            navigateTo('withdrawals');
-            showToast('✅ ' + t('approvedMsg'), 'success');
+            LD.notifications.unshift({ id: lgid(), userId: w.marketerId, message: '✅ Withdrawal ' + w.amount + ' ₺ approved', type: 'withdrawal', read: false, timestamp: new Date().toISOString() });
+            lsave(); navigateTo('withdrawals'); showToast('✅ ' + t('approvedMsg'), 'success');
         }
 
         function rejWD(wid) {
-            const w = LD.withdrawals.find(x => x.id === wid);
-            if (!w) return;
-            w.status = t('rejected');
-            const m = findUser(w.marketerId);
-            if (m) m.balance += w.amount;
-            lsave();
-            navigateTo('withdrawals');
-            showToast(t('rejectedMsg'), 'info');
+            const w = LD.withdrawals.find(x => x.id === wid); if (!w) return;
+            w.status = t('rejected'); const m = findUser(w.marketerId); if (m) m.balance += w.amount;
+            lsave(); navigateTo('withdrawals'); showToast(t('rejectedMsg'), 'info');
         }
 
         function renderMyWithdrawals(container) {
@@ -2634,9 +2185,7 @@
             ${refs.map(u => { const s = LD.orders.filter(o=>o.marketerId===u.id&&o.commissionStatus==='released').length; const g = LD.settings.referralThreshold; return `<tr><td>${u.name}</td><td>${s}/${g}</td><td>${g}</td><td>${s>=g?`<span class="status-pill received">${LD.settings.referralBonus} ₺</span>`:'<span class="status-pill pending">⏳</span>'}</td></tr>`; }).join('')}</table></div></div></div>`;
         }
 
-        function copyRef() { const i = document.getElementById('rli'); if (i) { i.select();
-                document.execCommand('copy');
-                showToast('📋 ' + t('copiedMsg'), 'success'); } }
+        function copyRef() { const i = document.getElementById('rli'); if (i) { i.select(); document.execCommand('copy'); showToast('📋 ' + t('copiedMsg'), 'success'); } }
 
         // ==================== STOREFRONT ====================
         function renderStorefront(container) {
@@ -2666,24 +2215,15 @@
             <div class="form-group"><label><input type="checkbox" id="opub" checked> ${t('publicOffer')}</label></div></div>
             <div class="modal-footer"><button class="btn" onclick="closeModal()">${t('cancel')}</button><button class="btn btn-accent" onclick="saveOffer()">${t('save')}</button></div></div></div>`;
             document.getElementById('osd').value = new Date().toISOString().split('T')[0];
-            document.getElementById('oed').value = new Date(Date.now() + 365 * 86400000).toISOString().split('T')[0];
+            document.getElementById('oed').value = new Date(Date.now() + 365*86400000).toISOString().split('T')[0];
         }
 
         function saveOffer() {
-            LD.offers.push({ id: lgid(), productId: document.getElementById('op').value,
-                discountPercent: parseFloat(document.getElementById('opct').value) || 0,
-                startDate: document.getElementById('osd').value, endDate: document.getElementById('oed').value,
-                public: document.getElementById('opub').checked, active: true,
-                createdAt: new Date().toISOString() });
-            lsave();
-            closeModal();
-            navigateTo('offers');
-            showToast('✅ ' + t('savedSuccess'), 'success');
+            LD.offers.push({ id: lgid(), productId: document.getElementById('op').value, discountPercent: parseFloat(document.getElementById('opct').value) || 0, startDate: document.getElementById('osd').value, endDate: document.getElementById('oed').value, public: document.getElementById('opub').checked, active: true, createdAt: new Date().toISOString() });
+            lsave(); closeModal(); navigateTo('offers'); showToast('✅ ' + t('savedSuccess'), 'success');
         }
 
-        function deleteOffer(oid) { LD.offers = LD.offers.filter(o => o.id !== oid);
-            lsave();
-            navigateTo('offers'); }
+        function deleteOffer(oid) { LD.offers = LD.offers.filter(o => o.id !== oid); lsave(); navigateTo('offers'); }
 
         // ==================== ANALYTICS ====================
         function renderAnalytics(container) {
@@ -2693,15 +2233,10 @@
               <div class="card animate-in"><div class="card-header"><h3>📊 ${t('salesChart')}</h3></div><div class="card-body"><canvas id="sc" height="250"></canvas></div></div>
               <div class="card animate-in"><div class="card-header"><h3>🏆 ${t('topMarketers')}</h3></div><div class="card-body"><canvas id="mc" height="250"></canvas></div></div>
             </div>`;
-            setTimeout(() => { const c1 = document.getElementById('sc'); if (c1) new Chart(c1, { type: 'bar',
-                    data: { labels: months, datasets: [{ label: t('sales'), data: [1200, 1900, 3000, 2500, 4200,
-                                3800
-                            ], backgroundColor: 'rgba(99,102,241,0.5)' }] },
-                    options: { responsive: true, plugins: { legend: { display: false } } } }); const c2 = document
-                    .getElementById('mc'); if (c2) new Chart(c2, { type: 'doughnut',
-                    data: { labels: ['Mohamed', 'Sara', 'Ahmed'], datasets: [{ data: [35, 18, 12],
-                            backgroundColor: ['#6366f1', '#10b981', '#f59e0b'] }] },
-                    options: { responsive: true, plugins: { legend: { position: 'bottom' } } } }); }, 400);
+            setTimeout(() => {
+                const c1 = document.getElementById('sc'); if (c1) new Chart(c1, { type: 'bar', data: { labels: months, datasets: [{ label: t('sales'), data: [1200, 1900, 3000, 2500, 4200, 3800], backgroundColor: 'rgba(99,102,241,0.5)' }] }, options: { responsive: true, plugins: { legend: { display: false } } } });
+                const c2 = document.getElementById('mc'); if (c2) new Chart(c2, { type: 'doughnut', data: { labels: ['Mohamed', 'Sara', 'Ahmed'], datasets: [{ data: [35, 18, 12], backgroundColor: ['#6366f1', '#10b981', '#f59e0b'] }] }, options: { responsive: true, plugins: { legend: { position: 'bottom' } } } });
+            }, 400);
         }
 
         // ==================== AUDIT LOG ====================
@@ -2714,35 +2249,37 @@
             container.innerHTML = `<div class="card animate-in"><div class="card-header"><h3>⚙️ ${t('settings')}</h3></div><div class="card-body"><div class="form-group"><label class="form-label">💵 ${t('minWithdraw')} (₺)</label><input class="form-input" type="number" id="smw" value="${LD.settings.minWithdrawal}"></div><div class="form-group"><label class="form-label">🎯 ${t('referralThreshold')}</label><input class="form-input" type="number" id="srt" value="${LD.settings.referralThreshold}"></div><div class="form-group"><label class="form-label">🏆 ${t('referralBonus')} (₺)</label><input class="form-input" type="number" id="srb" value="${LD.settings.referralBonus}"></div><div class="form-group"><label class="form-label">% ${t('defaultComm')}</label><input class="form-input" type="number" id="sdc" value="${LD.settings.defaultCommissionRate}"></div><button class="btn btn-accent" onclick="saveSet()">${t('save')}</button></div></div>`;
         }
 
-        function saveSet() { LD.settings.minWithdrawal = parseFloat(document.getElementById('smw').value) || 200;
+        function saveSet() {
+            LD.settings.minWithdrawal = parseFloat(document.getElementById('smw').value) || 200;
             LD.settings.referralThreshold = parseInt(document.getElementById('srt').value) || 50;
             LD.settings.referralBonus = parseFloat(document.getElementById('srb').value) || 300;
             LD.settings.defaultCommissionRate = parseFloat(document.getElementById('sdc').value) || 15;
-            lsave();
-            showToast('✅ ' + t('savedSuccess'), 'success'); }
+            lsave(); showToast('✅ ' + t('savedSuccess'), 'success');
+        }
 
         // ==================== NOTIFICATIONS ====================
-        function toggleNotifications() { const dd = document.getElementById('notifDropdown');
-            dd.classList.toggle('show'); if (dd.classList.contains('show')) { const ns = LD.notifications.filter(n => n
-                    .userId === currentUser?.id).slice(0, 20);
-                dd.innerHTML = ns.length === 0 ? '<div class="notif-item">' + t('noNotifications') + '</div>' : ns.map(n =>
-                    `<div class="notif-item ${n.read?'':'unread'}" onclick="markRead('${n.id}')"><p>${n.message}</p><small>${new Date(n.timestamp).toLocaleString()}</small></div>`
-                    ).join('');
+        function toggleNotifications() {
+            const dd = document.getElementById('notifDropdown');
+            dd.classList.toggle('show');
+            if (dd.classList.contains('show')) {
+                const ns = LD.notifications.filter(n => n.userId === currentUser?.id).slice(0, 20);
+                dd.innerHTML = ns.length === 0 ? '<div class="notif-item">' + t('noNotifications') + '</div>' : ns.map(n => `<div class="notif-item ${n.read?'':'unread'}" onclick="markRead('${n.id}')"><p>${n.message}</p><small>${new Date(n.timestamp).toLocaleString()}</small></div>`).join('');
                 ns.forEach(n => { n.read = true; });
                 lsave();
-                updateNotifBadge(); } }
+                updateNotifBadge();
+            }
+        }
 
-        function updateNotifBadge() { const b = document.getElementById('notifBadge'); if (!currentUser) { b.classList.add(
-                    'hidden'); return; } const u = LD.notifications.filter(n => n.userId === currentUser.id && !n.read)
-                .length; if (u > 0) { b.classList.remove('hidden');
-                b.textContent = u > 99 ? '99+' : u; } else b.classList.add('hidden'); }
+        function updateNotifBadge() {
+            const b = document.getElementById('notifBadge');
+            if (!currentUser) { b.classList.add('hidden'); return; }
+            const u = LD.notifications.filter(n => n.userId === currentUser.id && !n.read).length;
+            if (u > 0) { b.classList.remove('hidden'); b.textContent = u > 99 ? '99+' : u; }
+            else b.classList.add('hidden');
+        }
 
-        function markRead(nid) { const n = LD.notifications.find(x => x.id === nid); if (n) n.read = true;
-            lsave();
-            updateNotifBadge(); }
-        document.addEventListener('click', function(e) { const b = document.getElementById('notifBell'),
-                d = document.getElementById('notifDropdown'); if (d && b && !b.contains(e.target) && !d.contains(e
-                    .target)) d.classList.remove('show'); });
+        function markRead(nid) { const n = LD.notifications.find(x => x.id === nid); if (n) n.read = true; lsave(); updateNotifBadge(); }
+        document.addEventListener('click', function(e) { const b = document.getElementById('notifBell'), d = document.getElementById('notifDropdown'); if (d && b && !b.contains(e.target) && !d.contains(e.target)) d.classList.remove('show'); });
 
         // ==================== INIT ====================
         (async function() {
@@ -2753,16 +2290,35 @@
             applyTheme();
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
             document.documentElement.lang = currentLang;
-            document.getElementById('darkModeBtn').innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' :
-                '<i class="fas fa-moon"></i>';
+            document.getElementById('darkModeBtn').innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
             document.getElementById('langBtn').textContent = currentLang === 'ar' ? 'EN' : 'AR';
             document.getElementById('sidebarSubtitle').textContent = t('platform');
             document.getElementById('fbLabel').textContent = t('fbGroup');
             document.getElementById('waLabel').textContent = t('whatsappSupport');
-            showLogin();
-            console.log('🚀 Kiro Print Ready (Fully Bilingual + Enhanced Details)');
+
+            // Try to restore session
+            const savedUserId = getSessionUserId();
+            if (savedUserId) {
+                const user = LD.users.find(u => u.id === savedUserId);
+                if (user && !user.banned && user.active) {
+                    currentUser = user;
+                    document.getElementById('sidebar').style.display = 'flex';
+                    updateSidebar();
+                    updateSidebarUserInfo();
+                    updateNotifBadge();
+                    navigateTo('dashboard');
+                    renderApp(); // sets up sidebar and content
+                } else {
+                    // invalid session, clear
+                    clearSession();
+                    showLogin();
+                }
+            } else {
+                showLogin();
+            }
+
+            console.log('🚀 Kiro Print Ready (Fully Bilingual + Categories + Session Persistence)');
             console.log('👑 Admin: adminzoz@kiro.print / 123456');
-            console.log('📢 New: Marketer page name, full customer details, withdrawal info visible');
         })();
     </script>
 </body>
